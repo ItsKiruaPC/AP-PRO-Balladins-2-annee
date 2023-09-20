@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP-PRO-Balladins-2-annee", "AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee.csproj", "{2CBCDEA8-2A24-4C7D-A410-C3C6EB373294}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CBCDEA8-2A24-4C7D-A410-C3C6EB373294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBCDEA8-2A24-4C7D-A410-C3C6EB373294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CBCDEA8-2A24-4C7D-A410-C3C6EB373294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBCDEA8-2A24-4C7D-A410-C3C6EB373294}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E4CE49D-9B95-40AE-A39B-69C6DACB5DAA}
+	EndGlobalSection
+EndGlobal

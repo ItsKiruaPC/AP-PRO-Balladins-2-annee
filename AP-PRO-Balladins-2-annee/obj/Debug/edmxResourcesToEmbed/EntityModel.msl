@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="ConnexionDb">
+    <EntitySetMapping Name="chambre">
+      <EntityTypeMapping TypeName="EntityModel.chambre">
+        <MappingFragment StoreEntitySet="chambre">
+          <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+          <ScalarProperty Name="nochambre" ColumnName="nochambre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="equipement">
+      <EntityTypeMapping TypeName="EntityModel.equipement">
+        <MappingFragment StoreEntitySet="equipement">
+          <ScalarProperty Name="noequ" ColumnName="noequ" />
+          <ScalarProperty Name="lib" ColumnName="lib" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hotel">
+      <EntityTypeMapping TypeName="EntityModel.hotel">
+        <MappingFragment StoreEntitySet="hotel">
+          <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="adr1" ColumnName="adr1" />
+          <ScalarProperty Name="adr2" ColumnName="adr2" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="ville" ColumnName="ville" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="descourt" ColumnName="descourt" />
+          <ScalarProperty Name="deslong" ColumnName="deslong" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="photo">
+      <EntityTypeMapping TypeName="EntityModel.photo">
+        <MappingFragment StoreEntitySet="photo">
+          <ScalarProperty Name="nophoto" ColumnName="nophoto" />
+          <ScalarProperty Name="nomfichier" ColumnName="nomfichier" />
+          <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reserv">
+      <EntityTypeMapping TypeName="EntityModel.reserv">
+        <MappingFragment StoreEntitySet="reserv">
+          <ScalarProperty Name="nores" ColumnName="nores" />
+          <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+          <ScalarProperty Name="nochambre" ColumnName="nochambre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservation">
+      <EntityTypeMapping TypeName="EntityModel.reservation">
+        <MappingFragment StoreEntitySet="reservation">
+          <ScalarProperty Name="nores" ColumnName="nores" />
+          <ScalarProperty Name="datedeb" ColumnName="datedeb" />
+          <ScalarProperty Name="datefin" ColumnName="datefin" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="codeacces" ColumnName="codeacces" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="equiper" TypeName="EntityModel.equiper" StoreEntitySet="equiper">
+      <EndProperty Name="equipement">
+        <ScalarProperty Name="noequ" ColumnName="noequ" />
+      </EndProperty>
+      <EndProperty Name="hotel">
+        <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
