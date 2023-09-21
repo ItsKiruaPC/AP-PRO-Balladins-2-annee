@@ -86,7 +86,6 @@
             this.btn_create.TabIndex = 6;
             this.btn_create.Text = "Créer";
             this.btn_create.UseVisualStyleBackColor = true;
-            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // FrmConnexion
             // 
