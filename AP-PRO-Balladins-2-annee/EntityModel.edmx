@@ -270,7 +270,7 @@
           <Property Name="descourt" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="deslong" Type="String" MaxLength="1150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="prix" Type="Double" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="chambre" Relationship="Self.FK__chambre__nohotel__6A85CC04" FromRole="hotel" ToRole="chambre" />
           <NavigationProperty Name="photo" Relationship="Self.FK__photo__nohotel__63D8CE75" FromRole="hotel" ToRole="photo" />
           <NavigationProperty Name="reservation" Relationship="Self.FK__reservati__nores__60083D91" FromRole="hotel" ToRole="reservation" />

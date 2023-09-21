@@ -8,6 +8,6 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
 {
     internal class PasserelleHotel
     {
-        
+        List<hotel> leshotels = new List<hotel>();
     }
 }
