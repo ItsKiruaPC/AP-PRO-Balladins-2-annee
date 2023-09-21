@@ -1,4 +1,5 @@
 ﻿using AP_PRO_Balladins_2_annee.Classe_Metier;
+using AP_PRO_Balladins_2_annee.Classe_passerelle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,8 @@ namespace AP_PRO_Balladins_2_annee
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            label1.Text = "";
+            txt_identifiant.Text = "";
+            txt_password.Text = "";
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -30,11 +32,11 @@ namespace AP_PRO_Balladins_2_annee
                 if (varglobale.connexionDb.hotel.Where(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text).Any())
                 {
 
-                    MessageBox.Show("Valide");
+                    MessageBox.Show("Bienvenu: "+txt_identifiant.Text);
                 }
                 else
                 {
-                    MessageBox.Show("Non valide");
+                    MessageBox.Show("Mauvais identifiant veuillez réessayer");
                 }
             }
             catch (Exception)
@@ -43,20 +45,6 @@ namespace AP_PRO_Balladins_2_annee
             }
         }
 
-        private void btn_create_Click(object sender, EventArgs e)
-        {
-            if (varglobale.connexionDb.hotel.Where(hotel => hotel.nom == txt_identifiant.Text && hotel.password == null).Any())
-            {
-                varglobale.lehotel.password = txt_password.Text;
-                varglobale.connexionDb.SaveChanges();
-                MessageBox.Show("Vu que l'identifiant est juste mais que le mot de passe n'en a pas alors j'ai jouter celui ci");
-            }
-            else
-            {
-                MessageBox.Show("L'identifiant ou le mdp est faux");
-            }
-            
-        }
     }
 
 }

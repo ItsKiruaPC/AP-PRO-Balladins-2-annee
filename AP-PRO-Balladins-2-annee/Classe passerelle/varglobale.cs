@@ -10,6 +10,7 @@ namespace AP_PRO_Balladins_2_annee
     internal class varglobale
     {
         public static hotel lehotel;
+        List<hotel> leshotels;
         public static equipement equipement;
         public static equiper equiper;
         public static reserv reserv;
