@@ -44,6 +44,28 @@ namespace AP_PRO_Balladins_2_annee
                
             }
         }
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            if (varglobale.connexionDb.hotel.Where(hotel => hotel.nom == txt_identifiant.Text && hotel.password == null).Any())
+            {
+                using (var db = new ConnexionDb())
+                {
+                    var resultat = db.hotel.Where(hotel => hotel.nom == txt_identifiant.Text).SingleOrDefault();
+                    if (resultat != null)
+                    {
+                        resultat.password = txt_password.Text;
+
+                        db.SaveChanges();
+                    }
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("L'identifiant ou le mdp est faux");
+            }
+
+        }
 
     }
 
