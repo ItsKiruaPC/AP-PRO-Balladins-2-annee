@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -58,14 +59,8 @@
     <Compile Include="chambre.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Classe Metier\chambre.cs" />
-    <Compile Include="Classe Metier\equipement.cs" />
-    <Compile Include="Classe Metier\equiper.cs" />
-    <Compile Include="Classe Metier\hotel.cs" />
-    <Compile Include="Classe Metier\photo.cs" />
-    <Compile Include="Classe Metier\reserv.cs" />
-    <Compile Include="Classe Metier\reservation.cs" />
-    <Compile Include="Classe passerelle\PasserelleHotel.cs" />
+    <Compile Include="Classe passerelle\ChambreDAO.cs" />
+    <Compile Include="Classe passerelle\HotelDAO.cs" />
     <Compile Include="EntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +85,12 @@
     <Compile Include="FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGererChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGererChambre.Designer.cs">
+      <DependentUpon>FrmGererChambre.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGererHotel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +114,9 @@
     </Compile>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGererChambre.resx">
+      <DependentUpon>FrmGererChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGererHotel.resx">
       <DependentUpon>FrmGererHotel.cs</DependentUpon>
@@ -149,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classe Metier\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="EntityModel.Context.tt">

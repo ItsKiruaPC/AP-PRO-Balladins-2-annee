@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="ConnexionDb">
+  <EntityContainerMapping StorageEntityContainer="bdciehotelModelStoreContainer" CdmEntityContainer="ConnexionDb">
     <EntitySetMapping Name="chambre">
-      <EntityTypeMapping TypeName="EntityModel.chambre">
+      <EntityTypeMapping TypeName="bdciehotelModel.chambre">
         <MappingFragment StoreEntitySet="chambre">
           <ScalarProperty Name="nohotel" ColumnName="nohotel" />
           <ScalarProperty Name="nochambre" ColumnName="nochambre" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="equipement">
-      <EntityTypeMapping TypeName="EntityModel.equipement">
+      <EntityTypeMapping TypeName="bdciehotelModel.equipement">
         <MappingFragment StoreEntitySet="equipement">
           <ScalarProperty Name="noequ" ColumnName="noequ" />
           <ScalarProperty Name="lib" ColumnName="lib" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="hotel">
-      <EntityTypeMapping TypeName="EntityModel.hotel">
+      <EntityTypeMapping TypeName="bdciehotelModel.hotel">
         <MappingFragment StoreEntitySet="hotel">
           <ScalarProperty Name="nohotel" ColumnName="nohotel" />
           <ScalarProperty Name="nom" ColumnName="nom" />
@@ -36,7 +36,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="photo">
-      <EntityTypeMapping TypeName="EntityModel.photo">
+      <EntityTypeMapping TypeName="bdciehotelModel.photo">
         <MappingFragment StoreEntitySet="photo">
           <ScalarProperty Name="nophoto" ColumnName="nophoto" />
           <ScalarProperty Name="nomfichier" ColumnName="nomfichier" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reserv">
-      <EntityTypeMapping TypeName="EntityModel.reserv">
+      <EntityTypeMapping TypeName="bdciehotelModel.reserv">
         <MappingFragment StoreEntitySet="reserv">
           <ScalarProperty Name="nores" ColumnName="nores" />
           <ScalarProperty Name="nohotel" ColumnName="nohotel" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reservation">
-      <EntityTypeMapping TypeName="EntityModel.reservation">
+      <EntityTypeMapping TypeName="bdciehotelModel.reservation">
         <MappingFragment StoreEntitySet="reservation">
           <ScalarProperty Name="nores" ColumnName="nores" />
           <ScalarProperty Name="datedeb" ColumnName="datedeb" />
@@ -65,7 +65,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="equiper" TypeName="EntityModel.equiper" StoreEntitySet="equiper">
+    <AssociationSetMapping Name="equiper" TypeName="bdciehotelModel.equiper" StoreEntitySet="equiper">
       <EndProperty Name="equipement">
         <ScalarProperty Name="noequ" ColumnName="noequ" />
       </EndProperty>
