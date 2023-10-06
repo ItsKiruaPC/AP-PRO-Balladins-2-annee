@@ -19,6 +19,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             this.chambre = new HashSet<chambre>();
             this.photo = new HashSet<photo>();
+            this.reservation = new HashSet<reservation>();
             this.equipement = new HashSet<equipement>();
         }
     
@@ -38,7 +39,8 @@ namespace AP_PRO_Balladins_2_annee
         public virtual ICollection<chambre> chambre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<photo> photo { get; set; }
-        public virtual reservation reservation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reservation> reservation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<equipement> equipement { get; set; }
     }

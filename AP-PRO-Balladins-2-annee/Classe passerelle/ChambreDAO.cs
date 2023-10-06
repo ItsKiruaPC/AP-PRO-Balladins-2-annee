@@ -15,7 +15,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
             try
             {
                 // Récupérez tous les équipements de la base de données
-                return varglobale.lehotel.chambre.ToList();
+                return varglobale.lehotel.chambre.OrderBy(h => h.nochambre).ToList();
             }
             catch (Exception ex)
             {

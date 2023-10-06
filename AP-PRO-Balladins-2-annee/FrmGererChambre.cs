@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AP_PRO_Balladins_2_annee
@@ -20,7 +21,9 @@ namespace AP_PRO_Balladins_2_annee
         }
         HotelDAO hotelHelper = new HotelDAO();
         ChambreDAO chambreHelp = new ChambreDAO();
-        chambre unC = new chambre();
+        chambre unT = new chambre();
+        
+
         private void FrmGererChambre_Load(object sender, EventArgs e)
         {
             grd_view.RowHeadersVisible = false;
@@ -33,6 +36,7 @@ namespace AP_PRO_Balladins_2_annee
             grd_view.Columns[0].HeaderText = "Numéro";
             grd_view.Columns[1].HeaderText = "Nom";
             txt_Nom.Text = varglobale.lehotel.nom;
+            grd_view.Rows.Clear();
 
             List<chambre> chambreNames = chambreHelp.ChargerChambre();
             List<int> listChambre = chambreHelp.ListChambre();
@@ -41,7 +45,7 @@ namespace AP_PRO_Balladins_2_annee
 
             if (varglobale.lehotel.nom != null)
             foreach(var emp in chambreNames)
-            grd_view.Rows.Add(emp.nochambre, varglobale.lehotel.nom);
+            grd_view.Rows.Add(emp.nochambre, emp.hotel.nom);
 
         }
 
@@ -56,41 +60,50 @@ namespace AP_PRO_Balladins_2_annee
         {
             this.Close();
         }
-        //Servira a actualiser automatiquement les données
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lst_view_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Add_Click(object sender, EventArgs e)
         {
-           
-            unC.nohotel = varglobale.lehotel.nohotel;
-            unC.nochambre=Convert.ToInt32(cbo_chambre.SelectedItem);
-
-            varglobale.lehotel.chambre.Add(unC);
-            varglobale.connexionDb.SaveChanges();
-
-            
-            grd_view.DataSource = unC.hotel.chambre;
-
+            try
+            {
+                chambre unC = new chambre();
+                unC.nohotel = varglobale.lehotel.nohotel;
+                unC.nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
+                List<int> listChambre = chambreHelp.ListChambre();
+                chambre lol= new chambre();
+                foreach (var emp in chambreHelp.ChargerChambre())
+                {
+                    if (emp.nochambre == unC.nochambre)
+                    {
+                        lol = emp;
+                    }
+                }
+                if (unC.nochambre != lol.nochambre || lol.nochambre == 0)
+                {
+                    varglobale.lehotel.chambre.Add(unC);
+                    varglobale.connexionDb.SaveChanges();
+                    FrmGererChambre_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Ca existe déjà");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btn_Del_Click(object sender, EventArgs e)
         {
+            chambre unC = new chambre();
             unC.nohotel = varglobale.lehotel.nohotel;
-            unC.nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
-
-            varglobale.lehotel.chambre.Remove(unC);
+            int nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
+            chambre chambreasupr = varglobale.lehotel.chambre.Where(chambre => chambre.nochambre == nochambre).FirstOrDefault();
+            varglobale.lehotel.chambre.Remove(chambreasupr);
             varglobale.connexionDb.SaveChanges();
 
-            
-            grd_view.DataSource = unC.hotel.chambre;
+            FrmGererChambre_Load(sender, e);
+
         }
     }
 }

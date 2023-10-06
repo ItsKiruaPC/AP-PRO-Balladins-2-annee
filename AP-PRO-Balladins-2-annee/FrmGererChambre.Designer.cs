@@ -41,6 +41,7 @@
             this.cbo_chambre = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Nom = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_view)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.tableToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1248, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(771, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -95,14 +96,15 @@
             this.grd_view.Name = "grd_view";
             this.grd_view.RowHeadersWidth = 62;
             this.grd_view.RowTemplate.Height = 28;
-            this.grd_view.Size = new System.Drawing.Size(834, 604);
+            this.grd_view.Size = new System.Drawing.Size(327, 604);
             this.grd_view.TabIndex = 2;
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(890, 472);
+            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.Location = new System.Drawing.Point(383, 478);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(124, 60);
+            this.btn_Add.Size = new System.Drawing.Size(137, 60);
             this.btn_Add.TabIndex = 4;
             this.btn_Add.Text = "Ajouter";
             this.btn_Add.UseVisualStyleBackColor = true;
@@ -110,9 +112,10 @@
             // 
             // btn_Del
             // 
-            this.btn_Del.Location = new System.Drawing.Point(1102, 472);
+            this.btn_Del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Del.Location = new System.Drawing.Point(602, 478);
             this.btn_Del.Name = "btn_Del";
-            this.btn_Del.Size = new System.Drawing.Size(124, 60);
+            this.btn_Del.Size = new System.Drawing.Size(137, 60);
             this.btn_Del.TabIndex = 6;
             this.btn_Del.Text = "Supprimer";
             this.btn_Del.UseVisualStyleBackColor = true;
@@ -121,16 +124,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(867, 122);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(469, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.Size = new System.Drawing.Size(180, 29);
             this.label2.TabIndex = 8;
             this.label2.Text = "Nom de l\'hotel :";
             // 
             // cbo_chambre
             // 
             this.cbo_chambre.FormattingEnabled = true;
-            this.cbo_chambre.Location = new System.Drawing.Point(1026, 222);
+            this.cbo_chambre.Location = new System.Drawing.Point(461, 354);
             this.cbo_chambre.Name = "cbo_chambre";
             this.cbo_chambre.Size = new System.Drawing.Size(188, 28);
             this.cbo_chambre.TabIndex = 9;
@@ -138,25 +142,38 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(867, 225);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(442, 311);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 20);
+            this.label3.Size = new System.Drawing.Size(234, 29);
             this.label3.TabIndex = 10;
             this.label3.Text = "Numéro de chambre";
             // 
             // txt_Nom
             // 
-            this.txt_Nom.Location = new System.Drawing.Point(990, 122);
+            this.txt_Nom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nom.Location = new System.Drawing.Point(447, 164);
             this.txt_Nom.Name = "txt_Nom";
             this.txt_Nom.ReadOnly = true;
-            this.txt_Nom.Size = new System.Drawing.Size(224, 26);
+            this.txt_Nom.Size = new System.Drawing.Size(224, 35);
             this.txt_Nom.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Noto Sans", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(258, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(225, 55);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Chambres";
             // 
             // FrmGererChambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 742);
+            this.ClientSize = new System.Drawing.Size(771, 742);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_Nom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbo_chambre);
@@ -192,5 +209,6 @@
         private System.Windows.Forms.ComboBox cbo_chambre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_Nom;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -106,9 +106,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classe passerelle\varglobale.cs" />
-    <Compile Include="reserv.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="reservation.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>

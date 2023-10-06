@@ -44,19 +44,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="reserv">
-      <EntityTypeMapping TypeName="bdciehotelModel.reserv">
-        <MappingFragment StoreEntitySet="reserv">
-          <ScalarProperty Name="nores" ColumnName="nores" />
-          <ScalarProperty Name="nohotel" ColumnName="nohotel" />
-          <ScalarProperty Name="nochambre" ColumnName="nochambre" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="reservation">
       <EntityTypeMapping TypeName="bdciehotelModel.reservation">
         <MappingFragment StoreEntitySet="reservation">
           <ScalarProperty Name="nores" ColumnName="nores" />
+          <ScalarProperty Name="nohotel" ColumnName="nohotel" />
           <ScalarProperty Name="datedeb" ColumnName="datedeb" />
           <ScalarProperty Name="datefin" ColumnName="datefin" />
           <ScalarProperty Name="nom" ColumnName="nom" />
@@ -71,6 +63,15 @@
       </EndProperty>
       <EndProperty Name="hotel">
         <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="reserv" TypeName="bdciehotelModel.reserv" StoreEntitySet="reserv">
+      <EndProperty Name="chambre">
+        <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+        <ScalarProperty Name="nochambre" ColumnName="nochambre" />
+      </EndProperty>
+      <EndProperty Name="reservation">
+        <ScalarProperty Name="nores" ColumnName="nores" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

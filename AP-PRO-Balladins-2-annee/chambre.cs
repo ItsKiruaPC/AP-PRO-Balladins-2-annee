@@ -17,7 +17,7 @@ namespace AP_PRO_Balladins_2_annee
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public chambre()
         {
-            this.reserv = new HashSet<reserv>();
+            this.reservation = new HashSet<reservation>();
         }
     
         public int nohotel { get; set; }
@@ -25,6 +25,6 @@ namespace AP_PRO_Balladins_2_annee
     
         public virtual hotel hotel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reserv> reserv { get; set; }
+        public virtual ICollection<reservation> reservation { get; set; }
     }
 }

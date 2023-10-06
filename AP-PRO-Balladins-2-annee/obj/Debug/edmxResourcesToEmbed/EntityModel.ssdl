@@ -63,6 +63,7 @@
       <PropertyRef Name="nores" />
     </Key>
     <Property Name="nores" Type="int" Nullable="false" />
+    <Property Name="nohotel" Type="int" />
     <Property Name="datedeb" Type="date" />
     <Property Name="datefin" Type="date" />
     <Property Name="nom" Type="varchar(max)" />
@@ -131,20 +132,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__reserv__36D11DD4">
-    <End Role="chambre" Type="Self.chambre" Multiplicity="1" />
-    <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="chambre">
-        <PropertyRef Name="nohotel" />
-        <PropertyRef Name="nochambre" />
-      </Principal>
-      <Dependent Role="reserv">
-        <PropertyRef Name="nohotel" />
-        <PropertyRef Name="nochambre" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__reserv__nores__35DCF99B">
     <End Role="reservation" Type="Self.reservation" Multiplicity="1" />
     <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
@@ -157,27 +144,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__reserv__nores__37C5420D">
-    <End Role="reservation" Type="Self.reservation" Multiplicity="1" />
-    <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="reservation">
-        <PropertyRef Name="nores" />
-      </Principal>
-      <Dependent Role="reserv">
-        <PropertyRef Name="nores" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__reservati__nores__2D47B39A">
-    <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
-    <End Role="reservation" Type="Self.reservation" Multiplicity="0..1" />
+    <End Role="hotel" Type="Self.hotel" Multiplicity="0..1" />
+    <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hotel">
         <PropertyRef Name="nohotel" />
       </Principal>
       <Dependent Role="reservation">
-        <PropertyRef Name="nores" />
+        <PropertyRef Name="nohotel" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -209,15 +184,7 @@
       <End Role="chambre" EntitySet="chambre" />
       <End Role="reserv" EntitySet="reserv" />
     </AssociationSet>
-    <AssociationSet Name="FK__reserv__36D11DD4" Association="Self.FK__reserv__36D11DD4">
-      <End Role="chambre" EntitySet="chambre" />
-      <End Role="reserv" EntitySet="reserv" />
-    </AssociationSet>
     <AssociationSet Name="FK__reserv__nores__35DCF99B" Association="Self.FK__reserv__nores__35DCF99B">
-      <End Role="reservation" EntitySet="reservation" />
-      <End Role="reserv" EntitySet="reserv" />
-    </AssociationSet>
-    <AssociationSet Name="FK__reserv__nores__37C5420D" Association="Self.FK__reserv__nores__37C5420D">
       <End Role="reservation" EntitySet="reservation" />
       <End Role="reserv" EntitySet="reserv" />
     </AssociationSet>
