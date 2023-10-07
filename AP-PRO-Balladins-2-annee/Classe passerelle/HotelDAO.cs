@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AP_PRO_Balladins_2_annee.Classe_passerelle
 {
@@ -13,7 +9,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
         public List<hotel> ChargerHotel()
         {
 
-           ConnexionDb context = new ConnexionDb();
+           var context = new ConnexionDb();
             try
                 {
                 // Remplacez "Hotels" par le nom de votre entité représentant les hôtels
@@ -31,7 +27,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
         public List<string> ListHotel()
         {
 
-            ConnexionDb context = new ConnexionDb();
+            var context = new ConnexionDb();
             try
             {
                 // Remplacez "Hotels" par le nom de votre entité représentant les hôtels

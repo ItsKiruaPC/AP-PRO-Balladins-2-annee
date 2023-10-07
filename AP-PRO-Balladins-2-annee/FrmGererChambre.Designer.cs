@@ -48,11 +48,8 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem,
-            this.tableToolStripMenuItem});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.fichierToolStripMenuItem, this.tableToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(771, 33);
@@ -61,31 +58,29 @@
             // 
             // fichierToolStripMenuItem
             // 
-            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortirToolStripMenuItem});
+            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.sortirToolStripMenuItem });
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(78, 29);
+            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.fichierToolStripMenuItem.Text = "Fichier";
             // 
             // sortirToolStripMenuItem
             // 
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
-            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(127, 30);
             this.sortirToolStripMenuItem.Text = "Sortir";
             this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
             // tableToolStripMenuItem
             // 
-            this.tableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chambreToolStripMenuItem});
+            this.tableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.chambreToolStripMenuItem });
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
-            this.tableToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.tableToolStripMenuItem.Text = "Table";
             // 
             // chambreToolStripMenuItem
             // 
             this.chambreToolStripMenuItem.Name = "chambreToolStripMenuItem";
-            this.chambreToolStripMenuItem.Size = new System.Drawing.Size(186, 34);
+            this.chambreToolStripMenuItem.Size = new System.Drawing.Size(156, 30);
             this.chambreToolStripMenuItem.Text = "Chambre";
             this.chambreToolStripMenuItem.Click += new System.EventHandler(this.chambreToolStripMenuItem_Click);
             // 
@@ -96,7 +91,8 @@
             this.grd_view.Name = "grd_view";
             this.grd_view.RowHeadersWidth = 62;
             this.grd_view.RowTemplate.Height = 28;
-            this.grd_view.Size = new System.Drawing.Size(327, 604);
+            this.grd_view.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grd_view.Size = new System.Drawing.Size(317, 584);
             this.grd_view.TabIndex = 2;
             // 
             // btn_Add
@@ -192,7 +188,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grd_view)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

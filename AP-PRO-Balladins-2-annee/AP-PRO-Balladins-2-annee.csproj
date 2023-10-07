@@ -97,6 +97,12 @@
     <Compile Include="FrmGererHotel.Designer.cs">
       <DependentUpon>FrmGererHotel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="hotel.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGererHotel.resx">
       <DependentUpon>FrmGererHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,9 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classe Metier\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="EntityModel.Context.tt">

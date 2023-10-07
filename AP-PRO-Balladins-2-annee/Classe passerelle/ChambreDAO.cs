@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AP_PRO_Balladins_2_annee.Classe_passerelle
@@ -25,7 +23,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
         }
         public List<int> ListChambre()
         {
-            ConnexionDb contexte = new ConnexionDb();
+            var contexte = new ConnexionDb();
             try
             {
                 // Récupérez tous les équipements de la base de données
