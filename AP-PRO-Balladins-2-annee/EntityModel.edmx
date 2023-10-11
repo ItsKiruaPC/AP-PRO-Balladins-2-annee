@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="bdciehotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="chambre">
           <Key>
             <PropertyRef Name="nohotel" />
@@ -18,8 +18,8 @@
             <PropertyRef Name="noequ" />
           </Key>
           <Property Name="noequ" Type="int" Nullable="false" />
-          <Property Name="lib" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="logo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lib" Type="varchar" MaxLength="255" />
+          <Property Name="logo" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="equiper">
           <Key>
@@ -34,24 +34,24 @@
             <PropertyRef Name="nohotel" />
           </Key>
           <Property Name="nohotel" Type="int" Nullable="false" />
-          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="adr1" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="adr2" Type="nvarchar" MaxLength="50" />
-          <Property Name="cp" Type="int" Nullable="false" />
-          <Property Name="ville" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="tel" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="descourt" Type="nvarchar" MaxLength="350" Nullable="false" />
-          <Property Name="deslong" Type="nvarchar" MaxLength="1150" Nullable="false" />
-          <Property Name="prix" Type="float" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="1" />
+          <Property Name="nom" Type="varchar" MaxLength="100" />
+          <Property Name="adr1" Type="varchar" MaxLength="500" />
+          <Property Name="adr2" Type="varchar" MaxLength="500" />
+          <Property Name="cp" Type="int" />
+          <Property Name="ville" Type="varchar" MaxLength="500" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="descourt" Type="varchar(max)" />
+          <Property Name="deslong" Type="varchar(max)" />
+          <Property Name="prix" Type="float" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="photo">
           <Key>
             <PropertyRef Name="nophoto" />
           </Key>
           <Property Name="nophoto" Type="int" Nullable="false" />
-          <Property Name="nomfichier" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="nohotel" Type="int" Nullable="false" />
+          <Property Name="nomfichier" Type="varchar" MaxLength="255" />
+          <Property Name="nohotel" Type="int" />
         </EntityType>
         <EntityType Name="reserv">
           <Key>
@@ -67,14 +67,15 @@
           <Key>
             <PropertyRef Name="nores" />
           </Key>
+          <Property Name="nohotel" Type="int" />
           <Property Name="nores" Type="int" Nullable="false" />
           <Property Name="datedeb" Type="date" />
           <Property Name="datefin" Type="date" />
-          <Property Name="nom" Type="varchar" MaxLength="1" />
-          <Property Name="email" Type="varchar" MaxLength="1" />
+          <Property Name="nom" Type="varchar(max)" />
+          <Property Name="email" Type="varchar(max)" />
           <Property Name="codeacces" Type="float" />
         </EntityType>
-        <Association Name="FK__chambre__nohotel__6A85CC04">
+        <Association Name="FK__chambre__nohotel__38B96646">
           <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
           <End Role="chambre" Type="Self.chambre" Multiplicity="*" />
           <ReferentialConstraint>
@@ -86,7 +87,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__equiper__noequ__62E4AA3C">
+        <Association Name="FK__equiper__noequ__2F2FFC0C">
           <End Role="equipement" Type="Self.equipement" Multiplicity="1" />
           <End Role="equiper" Type="Self.equiper" Multiplicity="*" />
           <ReferentialConstraint>
@@ -98,7 +99,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__equiper__nohotel__61F08603">
+        <Association Name="FK__equiper__nohotel__2E3BD7D3">
           <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
           <End Role="equiper" Type="Self.equiper" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,8 +111,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__photo__nohotel__63D8CE75">
-          <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
+        <Association Name="FK__photo__nohotel__4242D080">
+          <End Role="hotel" Type="Self.hotel" Multiplicity="0..1" />
           <End Role="photo" Type="Self.photo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hotel">
@@ -122,7 +123,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserv__66B53B20">
+        <Association Name="FK__reserv__34E8D562">
           <End Role="chambre" Type="Self.chambre" Multiplicity="1" />
           <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
           <ReferentialConstraint>
@@ -136,21 +137,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserv__689D8392">
-          <End Role="chambre" Type="Self.chambre" Multiplicity="1" />
-          <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chambre">
-              <PropertyRef Name="nohotel" />
-              <PropertyRef Name="nochambre" />
-            </Principal>
-            <Dependent Role="reserv">
-              <PropertyRef Name="nohotel" />
-              <PropertyRef Name="nochambre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__reserv__nores__67A95F59">
+        <Association Name="FK__reserv__nores__35DCF99B">
           <End Role="reservation" Type="Self.reservation" Multiplicity="1" />
           <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,31 +149,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserv__nores__6991A7CB">
-          <End Role="reservation" Type="Self.reservation" Multiplicity="1" />
-          <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="reservation">
-              <PropertyRef Name="nores" />
-            </Principal>
-            <Dependent Role="reserv">
-              <PropertyRef Name="nores" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__reservati__nores__60083D91">
-          <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
-          <End Role="reservation" Type="Self.reservation" Multiplicity="0..1" />
+        <Association Name="FK__reservati__nores__2D47B39A">
+          <End Role="hotel" Type="Self.hotel" Multiplicity="0..1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hotel">
               <PropertyRef Name="nohotel" />
             </Principal>
             <Dependent Role="reservation">
-              <PropertyRef Name="nores" />
+              <PropertyRef Name="nohotel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EntityModelStoreContainer">
+        <EntityContainer Name="bdciehotelModelStoreContainer">
           <EntitySet Name="chambre" EntityType="Self.chambre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="equipement" EntityType="Self.equipement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="equiper" EntityType="Self.equiper" Schema="dbo" store:Type="Tables" />
@@ -194,39 +169,31 @@
           <EntitySet Name="photo" EntityType="Self.photo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reserv" EntityType="Self.reserv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reservation" EntityType="Self.reservation" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__chambre__nohotel__6A85CC04" Association="Self.FK__chambre__nohotel__6A85CC04">
+          <AssociationSet Name="FK__chambre__nohotel__38B96646" Association="Self.FK__chambre__nohotel__38B96646">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="chambre" EntitySet="chambre" />
           </AssociationSet>
-          <AssociationSet Name="FK__equiper__noequ__62E4AA3C" Association="Self.FK__equiper__noequ__62E4AA3C">
+          <AssociationSet Name="FK__equiper__noequ__2F2FFC0C" Association="Self.FK__equiper__noequ__2F2FFC0C">
             <End Role="equipement" EntitySet="equipement" />
             <End Role="equiper" EntitySet="equiper" />
           </AssociationSet>
-          <AssociationSet Name="FK__equiper__nohotel__61F08603" Association="Self.FK__equiper__nohotel__61F08603">
+          <AssociationSet Name="FK__equiper__nohotel__2E3BD7D3" Association="Self.FK__equiper__nohotel__2E3BD7D3">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="equiper" EntitySet="equiper" />
           </AssociationSet>
-          <AssociationSet Name="FK__photo__nohotel__63D8CE75" Association="Self.FK__photo__nohotel__63D8CE75">
+          <AssociationSet Name="FK__photo__nohotel__4242D080" Association="Self.FK__photo__nohotel__4242D080">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="photo" EntitySet="photo" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserv__66B53B20" Association="Self.FK__reserv__66B53B20">
+          <AssociationSet Name="FK__reserv__34E8D562" Association="Self.FK__reserv__34E8D562">
             <End Role="chambre" EntitySet="chambre" />
             <End Role="reserv" EntitySet="reserv" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserv__689D8392" Association="Self.FK__reserv__689D8392">
-            <End Role="chambre" EntitySet="chambre" />
-            <End Role="reserv" EntitySet="reserv" />
-          </AssociationSet>
-          <AssociationSet Name="FK__reserv__nores__67A95F59" Association="Self.FK__reserv__nores__67A95F59">
+          <AssociationSet Name="FK__reserv__nores__35DCF99B" Association="Self.FK__reserv__nores__35DCF99B">
             <End Role="reservation" EntitySet="reservation" />
             <End Role="reserv" EntitySet="reserv" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserv__nores__6991A7CB" Association="Self.FK__reserv__nores__6991A7CB">
-            <End Role="reservation" EntitySet="reservation" />
-            <End Role="reserv" EntitySet="reserv" />
-          </AssociationSet>
-          <AssociationSet Name="FK__reservati__nores__60083D91" Association="Self.FK__reservati__nores__60083D91">
+          <AssociationSet Name="FK__reservati__nores__2D47B39A" Association="Self.FK__reservati__nores__2D47B39A">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="reservation" EntitySet="reservation" />
           </AssociationSet>
@@ -235,7 +202,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="bdciehotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="chambre">
           <Key>
             <PropertyRef Name="nohotel" />
@@ -243,17 +210,16 @@
           </Key>
           <Property Name="nohotel" Type="Int32" Nullable="false" />
           <Property Name="nochambre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="hotel" Relationship="Self.FK__chambre__nohotel__6A85CC04" FromRole="chambre" ToRole="hotel" />
-          <NavigationProperty Name="reserv" Relationship="Self.FK__reserv__66B53B20" FromRole="chambre" ToRole="reserv" />
-          <NavigationProperty Name="reserv1" Relationship="Self.FK__reserv__689D8392" FromRole="chambre" ToRole="reserv" />
+          <NavigationProperty Name="hotel" Relationship="Self.FK__chambre__nohotel__38B96646" FromRole="chambre" ToRole="hotel" />
+          <NavigationProperty Name="reservation" Relationship="Self.reserv" FromRole="chambre" ToRole="reservation" />
         </EntityType>
         <EntityType Name="equipement">
           <Key>
             <PropertyRef Name="noequ" />
           </Key>
           <Property Name="noequ" Type="Int32" Nullable="false" />
-          <Property Name="lib" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lib" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="logo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="hotel" Relationship="Self.equiper" FromRole="equipement" ToRole="hotel" />
         </EntityType>
         <EntityType Name="hotel">
@@ -261,19 +227,19 @@
             <PropertyRef Name="nohotel" />
           </Key>
           <Property Name="nohotel" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="adr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="adr2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cp" Type="Int32" Nullable="false" />
-          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descourt" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="deslong" Type="String" MaxLength="1150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="prix" Type="Double" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="chambre" Relationship="Self.FK__chambre__nohotel__6A85CC04" FromRole="hotel" ToRole="chambre" />
-          <NavigationProperty Name="photo" Relationship="Self.FK__photo__nohotel__63D8CE75" FromRole="hotel" ToRole="photo" />
-          <NavigationProperty Name="reservation" Relationship="Self.FK__reservati__nores__60083D91" FromRole="hotel" ToRole="reservation" />
+          <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="adr1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="adr2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="Int32" />
+          <Property Name="ville" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descourt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deslong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="prix" Type="Double" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="chambre" Relationship="Self.FK__chambre__nohotel__38B96646" FromRole="hotel" ToRole="chambre" />
+          <NavigationProperty Name="photo" Relationship="Self.FK__photo__nohotel__4242D080" FromRole="hotel" ToRole="photo" />
+          <NavigationProperty Name="reservation" Relationship="Self.FK__reservati__nores__2D47B39A" FromRole="hotel" ToRole="reservation" />
           <NavigationProperty Name="equipement" Relationship="Self.equiper" FromRole="hotel" ToRole="equipement" />
         </EntityType>
         <EntityType Name="photo">
@@ -281,39 +247,25 @@
             <PropertyRef Name="nophoto" />
           </Key>
           <Property Name="nophoto" Type="Int32" Nullable="false" />
-          <Property Name="nomfichier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="nohotel" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="hotel" Relationship="Self.FK__photo__nohotel__63D8CE75" FromRole="photo" ToRole="hotel" />
-        </EntityType>
-        <EntityType Name="reserv">
-          <Key>
-            <PropertyRef Name="nores" />
-            <PropertyRef Name="nohotel" />
-            <PropertyRef Name="nochambre" />
-          </Key>
-          <Property Name="nores" Type="Int32" Nullable="false" />
-          <Property Name="nohotel" Type="Int32" Nullable="false" />
-          <Property Name="nochambre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="chambre" Relationship="Self.FK__reserv__66B53B20" FromRole="reserv" ToRole="chambre" />
-          <NavigationProperty Name="chambre1" Relationship="Self.FK__reserv__689D8392" FromRole="reserv" ToRole="chambre" />
-          <NavigationProperty Name="reservation" Relationship="Self.FK__reserv__nores__67A95F59" FromRole="reserv" ToRole="reservation" />
-          <NavigationProperty Name="reservation1" Relationship="Self.FK__reserv__nores__6991A7CB" FromRole="reserv" ToRole="reservation" />
+          <Property Name="nomfichier" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nohotel" Type="Int32" />
+          <NavigationProperty Name="hotel" Relationship="Self.FK__photo__nohotel__4242D080" FromRole="photo" ToRole="hotel" />
         </EntityType>
         <EntityType Name="reservation">
           <Key>
             <PropertyRef Name="nores" />
           </Key>
+          <Property Name="nohotel" Type="Int32" />
           <Property Name="nores" Type="Int32" Nullable="false" />
           <Property Name="datedeb" Type="DateTime" Precision="0" />
           <Property Name="datefin" Type="DateTime" Precision="0" />
-          <Property Name="nom" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="codeacces" Type="Double" />
-          <NavigationProperty Name="hotel" Relationship="Self.FK__reservati__nores__60083D91" FromRole="reservation" ToRole="hotel" />
-          <NavigationProperty Name="reserv" Relationship="Self.FK__reserv__nores__67A95F59" FromRole="reservation" ToRole="reserv" />
-          <NavigationProperty Name="reserv1" Relationship="Self.FK__reserv__nores__6991A7CB" FromRole="reservation" ToRole="reserv" />
+          <NavigationProperty Name="hotel" Relationship="Self.FK__reservati__nores__2D47B39A" FromRole="reservation" ToRole="hotel" />
+          <NavigationProperty Name="chambre" Relationship="Self.reserv" FromRole="reservation" ToRole="chambre" />
         </EntityType>
-        <Association Name="FK__chambre__nohotel__6A85CC04">
+        <Association Name="FK__chambre__nohotel__38B96646">
           <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
           <End Role="chambre" Type="Self.chambre" Multiplicity="*" />
           <ReferentialConstraint>
@@ -325,36 +277,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserv__66B53B20">
-          <End Role="chambre" Type="Self.chambre" Multiplicity="1" />
-          <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chambre">
-              <PropertyRef Name="nohotel" />
-              <PropertyRef Name="nochambre" />
-            </Principal>
-            <Dependent Role="reserv">
-              <PropertyRef Name="nohotel" />
-              <PropertyRef Name="nochambre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__reserv__689D8392">
-          <End Role="chambre" Type="Self.chambre" Multiplicity="1" />
-          <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chambre">
-              <PropertyRef Name="nohotel" />
-              <PropertyRef Name="nochambre" />
-            </Principal>
-            <Dependent Role="reserv">
-              <PropertyRef Name="nohotel" />
-              <PropertyRef Name="nochambre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__photo__nohotel__63D8CE75">
-          <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
+        <Association Name="FK__photo__nohotel__4242D080">
+          <End Role="hotel" Type="Self.hotel" Multiplicity="0..1" />
           <End Role="photo" Type="Self.photo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hotel">
@@ -365,39 +289,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reservati__nores__60083D91">
-          <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
-          <End Role="reservation" Type="Self.reservation" Multiplicity="0..1" />
+        <Association Name="FK__reservati__nores__2D47B39A">
+          <End Role="hotel" Type="Self.hotel" Multiplicity="0..1" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hotel">
               <PropertyRef Name="nohotel" />
             </Principal>
             <Dependent Role="reservation">
-              <PropertyRef Name="nores" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__reserv__nores__67A95F59">
-          <End Role="reservation" Type="Self.reservation" Multiplicity="1" />
-          <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="reservation">
-              <PropertyRef Name="nores" />
-            </Principal>
-            <Dependent Role="reserv">
-              <PropertyRef Name="nores" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__reserv__nores__6991A7CB">
-          <End Role="reservation" Type="Self.reservation" Multiplicity="1" />
-          <End Role="reserv" Type="Self.reserv" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="reservation">
-              <PropertyRef Name="nores" />
-            </Principal>
-            <Dependent Role="reserv">
-              <PropertyRef Name="nores" />
+              <PropertyRef Name="nohotel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -405,44 +305,35 @@
           <End Role="equipement" Type="Self.equipement" Multiplicity="*" />
           <End Role="hotel" Type="Self.hotel" Multiplicity="*" />
         </Association>
+        <Association Name="reserv">
+          <End Role="chambre" Type="Self.chambre" Multiplicity="*" />
+          <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="ConnexionDb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="chambre" EntityType="Self.chambre" />
           <EntitySet Name="equipement" EntityType="Self.equipement" />
           <EntitySet Name="hotel" EntityType="Self.hotel" />
           <EntitySet Name="photo" EntityType="Self.photo" />
-          <EntitySet Name="reserv" EntityType="Self.reserv" />
           <EntitySet Name="reservation" EntityType="Self.reservation" />
-          <AssociationSet Name="FK__chambre__nohotel__6A85CC04" Association="Self.FK__chambre__nohotel__6A85CC04">
+          <AssociationSet Name="FK__chambre__nohotel__38B96646" Association="Self.FK__chambre__nohotel__38B96646">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="chambre" EntitySet="chambre" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserv__66B53B20" Association="Self.FK__reserv__66B53B20">
-            <End Role="chambre" EntitySet="chambre" />
-            <End Role="reserv" EntitySet="reserv" />
-          </AssociationSet>
-          <AssociationSet Name="FK__reserv__689D8392" Association="Self.FK__reserv__689D8392">
-            <End Role="chambre" EntitySet="chambre" />
-            <End Role="reserv" EntitySet="reserv" />
-          </AssociationSet>
-          <AssociationSet Name="FK__photo__nohotel__63D8CE75" Association="Self.FK__photo__nohotel__63D8CE75">
+          <AssociationSet Name="FK__photo__nohotel__4242D080" Association="Self.FK__photo__nohotel__4242D080">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="photo" EntitySet="photo" />
           </AssociationSet>
-          <AssociationSet Name="FK__reservati__nores__60083D91" Association="Self.FK__reservati__nores__60083D91">
+          <AssociationSet Name="FK__reservati__nores__2D47B39A" Association="Self.FK__reservati__nores__2D47B39A">
             <End Role="hotel" EntitySet="hotel" />
             <End Role="reservation" EntitySet="reservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK__reserv__nores__67A95F59" Association="Self.FK__reserv__nores__67A95F59">
-            <End Role="reservation" EntitySet="reservation" />
-            <End Role="reserv" EntitySet="reserv" />
-          </AssociationSet>
-          <AssociationSet Name="FK__reserv__nores__6991A7CB" Association="Self.FK__reserv__nores__6991A7CB">
-            <End Role="reservation" EntitySet="reservation" />
-            <End Role="reserv" EntitySet="reserv" />
           </AssociationSet>
           <AssociationSet Name="equiper" Association="Self.equiper">
             <End Role="equipement" EntitySet="equipement" />
             <End Role="hotel" EntitySet="hotel" />
+          </AssociationSet>
+          <AssociationSet Name="reserv" Association="Self.reserv">
+            <End Role="chambre" EntitySet="chambre" />
+            <End Role="reservation" EntitySet="reservation" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -450,9 +341,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="ConnexionDb">
+        <EntityContainerMapping StorageEntityContainer="bdciehotelModelStoreContainer" CdmEntityContainer="ConnexionDb">
           <EntitySetMapping Name="chambre">
-            <EntityTypeMapping TypeName="EntityModel.chambre">
+            <EntityTypeMapping TypeName="bdciehotelModel.chambre">
               <MappingFragment StoreEntitySet="chambre">
                 <ScalarProperty Name="nohotel" ColumnName="nohotel" />
                 <ScalarProperty Name="nochambre" ColumnName="nochambre" />
@@ -460,7 +351,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="equipement">
-            <EntityTypeMapping TypeName="EntityModel.equipement">
+            <EntityTypeMapping TypeName="bdciehotelModel.equipement">
               <MappingFragment StoreEntitySet="equipement">
                 <ScalarProperty Name="noequ" ColumnName="noequ" />
                 <ScalarProperty Name="lib" ColumnName="lib" />
@@ -469,7 +360,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hotel">
-            <EntityTypeMapping TypeName="EntityModel.hotel">
+            <EntityTypeMapping TypeName="bdciehotelModel.hotel">
               <MappingFragment StoreEntitySet="hotel">
                 <ScalarProperty Name="nohotel" ColumnName="nohotel" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
@@ -486,7 +377,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="photo">
-            <EntityTypeMapping TypeName="EntityModel.photo">
+            <EntityTypeMapping TypeName="bdciehotelModel.photo">
               <MappingFragment StoreEntitySet="photo">
                 <ScalarProperty Name="nophoto" ColumnName="nophoto" />
                 <ScalarProperty Name="nomfichier" ColumnName="nomfichier" />
@@ -494,18 +385,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="reserv">
-            <EntityTypeMapping TypeName="EntityModel.reserv">
-              <MappingFragment StoreEntitySet="reserv">
-                <ScalarProperty Name="nores" ColumnName="nores" />
-                <ScalarProperty Name="nohotel" ColumnName="nohotel" />
-                <ScalarProperty Name="nochambre" ColumnName="nochambre" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="reservation">
-            <EntityTypeMapping TypeName="EntityModel.reservation">
+            <EntityTypeMapping TypeName="bdciehotelModel.reservation">
               <MappingFragment StoreEntitySet="reservation">
+                <ScalarProperty Name="nohotel" ColumnName="nohotel" />
                 <ScalarProperty Name="nores" ColumnName="nores" />
                 <ScalarProperty Name="datedeb" ColumnName="datedeb" />
                 <ScalarProperty Name="datefin" ColumnName="datefin" />
@@ -515,12 +398,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="equiper" TypeName="EntityModel.equiper" StoreEntitySet="equiper">
+          <AssociationSetMapping Name="equiper" TypeName="bdciehotelModel.equiper" StoreEntitySet="equiper">
             <EndProperty Name="equipement">
               <ScalarProperty Name="noequ" ColumnName="noequ" />
             </EndProperty>
             <EndProperty Name="hotel">
               <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="reserv" TypeName="bdciehotelModel.reserv" StoreEntitySet="reserv">
+            <EndProperty Name="chambre">
+              <ScalarProperty Name="nohotel" ColumnName="nohotel" />
+              <ScalarProperty Name="nochambre" ColumnName="nochambre" />
+            </EndProperty>
+            <EndProperty Name="reservation">
+              <ScalarProperty Name="nores" ColumnName="nores" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

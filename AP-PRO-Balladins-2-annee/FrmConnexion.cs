@@ -42,6 +42,7 @@ namespace AP_PRO_Balladins_2_annee
                         varglobale.lehotel = varglobale.connexionDb.hotel.Where(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text).FirstOrDefault();
                         MessageBox.Show("Bienvenue: " + txt_identifiant.Text);
                         FrmGererHotel formulaireOuvert = new FrmGererHotel();
+                        this.Hide();
                         formulaireOuvert.Show();
 
                     }
