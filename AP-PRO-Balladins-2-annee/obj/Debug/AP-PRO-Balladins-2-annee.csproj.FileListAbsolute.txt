@@ -48,3 +48,26 @@ C:\Users\eliot\OneDrive\Bureau\BTS\SIO2\AP\Appli\GitHub\AP-PRO-Balladins-2-annee
 C:\Users\eliot\OneDrive\Bureau\BTS\SIO2\AP\Appli\GitHub\AP-PRO-Balladins-2-annee-master\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
 C:\Users\eliot\OneDrive\Bureau\BTS\SIO2\AP\Appli\GitHub\AP-PRO-Balladins-2-annee-master\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
 C:\Users\eliot\OneDrive\Bureau\BTS\SIO2\AP\Appli\GitHub\AP-PRO-Balladins-2-annee-master\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererHotel.resources
+C:\Users\Adrien Fevre\Documents\Lycée\BTS\2°Année\Bloc\Atelier Pro\Peron\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\Adrien Fevre\Documents\Lycée\BTS\2°Année\Bloc\Atelier Pro\Peron\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererHotel.resources
+C:\Users\Adrien Fevre\Documents\Lycée\BTS\2°Année\Bloc\Atelier Pro\Peron\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererChambre.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.exe.config
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.exe
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.pdb
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.dll
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.xml
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.AssemblyReference.cache
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmConnexion.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererChambre.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererHotel.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.Properties.Resources.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.GenerateResource.cache
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CoreCompileInputs.cache
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CopyComplete
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmPrincipal.resources
+C:\Users\eliot\OneDrive\Bureau\BTS\SIO2\AP\Appli\GitHub\AP-PRO-Balladins-2-annee-master\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererChambre.resources

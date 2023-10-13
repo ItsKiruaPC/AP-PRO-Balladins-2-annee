@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a383b5a2384d46f189f3c1b3468e3a11" Name="Diagram1">
+      <Diagram DiagramId="40eeb412d2614cfb899169342d2d661f" Name="Diagram1">
         <EntityTypeShape EntityType="bdciehotelModel.chambre" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdciehotelModel.equipement" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bdciehotelModel.hotel" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdciehotelModel.photo" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdciehotelModel.reservation" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdciehotelModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="bdciehotelModel.FK__chambre__nohotel__38B96646" ManuallyRouted="false" />
         <AssociationConnector Association="bdciehotelModel.FK__photo__nohotel__4242D080" ManuallyRouted="false" />
         <AssociationConnector Association="bdciehotelModel.FK__reservati__nores__2D47B39A" ManuallyRouted="false" />

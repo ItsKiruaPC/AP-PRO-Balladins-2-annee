@@ -62,6 +62,16 @@
     <NavigationProperty Name="hotel" Relationship="Self.FK__reservati__nores__2D47B39A" FromRole="reservation" ToRole="hotel" />
     <NavigationProperty Name="chambre" Relationship="Self.reserv" FromRole="reservation" ToRole="chambre" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <Association Name="FK__chambre__nohotel__38B96646">
     <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
     <End Role="chambre" Type="Self.chambre" Multiplicity="*" />
@@ -112,6 +122,7 @@
     <EntitySet Name="hotel" EntityType="Self.hotel" />
     <EntitySet Name="photo" EntityType="Self.photo" />
     <EntitySet Name="reservation" EntityType="Self.reservation" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <AssociationSet Name="FK__chambre__nohotel__38B96646" Association="Self.FK__chambre__nohotel__38B96646">
       <End Role="hotel" EntitySet="hotel" />
       <End Role="chambre" EntitySet="chambre" />
