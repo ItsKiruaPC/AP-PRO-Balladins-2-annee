@@ -112,7 +112,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                // Si ce n'est pas un chiffre ni une touche de contrôle, rejetez la saisie en consommant l'événement
+                
                 e.Handled = true;
             }
         }
