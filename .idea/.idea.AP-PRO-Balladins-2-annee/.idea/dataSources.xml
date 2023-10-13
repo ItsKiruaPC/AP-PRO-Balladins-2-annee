@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="bdciehotel@MSI" uuid="187b5960-698d-471a-8c59-401f650cd6cc">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>Utilisé pour l'atelier pro en bts 2ème année Balladins</remarks>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=MSI\SQLEXPRESS;Database=bdciehotel</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
