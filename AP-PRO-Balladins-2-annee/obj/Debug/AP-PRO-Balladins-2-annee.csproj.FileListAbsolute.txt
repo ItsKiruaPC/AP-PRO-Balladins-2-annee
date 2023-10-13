@@ -70,4 +70,3 @@ C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmPrincipal.resources
-C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmAccueil.resources

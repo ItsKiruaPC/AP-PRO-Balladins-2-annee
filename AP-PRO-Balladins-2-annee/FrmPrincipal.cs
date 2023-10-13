@@ -38,19 +38,12 @@ namespace AP_PRO_Balladins_2_annee
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-
             notifyIcon1.BalloonTipText = @"Bienvenue sur l'application";
-
             notifyIcon1.BalloonTipTitle = @"Balladin";
-
             notifyIcon1.ShowBalloonTip(100);
             
             //lbl_Nom.Text = varglobale.lehotel.nom;
             OpenChildForm(new FrmConnexion());
-        }
-        private void FrmAccueil_Load(object sender, EventArgs e)
-        {
-            OpenChildForm(new FrmAccueil());
         }
         private void chambreToolStripMenuItem_Click(object sender, EventArgs e)
         {

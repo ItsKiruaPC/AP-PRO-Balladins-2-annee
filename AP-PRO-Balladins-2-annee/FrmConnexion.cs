@@ -9,7 +9,6 @@ namespace AP_PRO_Balladins_2_annee
         public FrmConnexion()
         {
             InitializeComponent();
-            
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,7 +25,6 @@ namespace AP_PRO_Balladins_2_annee
             {
                 try
                 {
-                    
                     if (varglobale.connexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text))
                     {
                         varglobale.lehotel = varglobale.connexionDb.hotel.FirstOrDefault(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text);
@@ -45,12 +43,10 @@ namespace AP_PRO_Balladins_2_annee
                 }
             }
         }
-
         private void btn_create_Click(object sender, EventArgs e)
         {
             {
-                if (varglobale.connexionDb.hotel.Any(hotel =>
-                        hotel.nom == txt_identifiant.Text && hotel.password == null))
+                if (varglobale.connexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == null))
                 {
                     using (var db = new ConnexionDb())
                     {
@@ -70,10 +66,7 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     MessageBox.Show(@"L'identifiant ou le mdp est faux");
                 }
-
             }
         }
-
     }
-
 }
