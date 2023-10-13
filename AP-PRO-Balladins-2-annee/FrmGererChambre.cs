@@ -16,6 +16,7 @@ namespace AP_PRO_Balladins_2_annee
 
         private void FrmGererChambre_Load(object sender, EventArgs e)
         {
+            
             grd_view.ColumnCount = 2;
             
             grd_view.Columns[0].HeaderText = @"Numéro";
@@ -100,6 +101,14 @@ namespace AP_PRO_Balladins_2_annee
 
             FrmGererChambre_Load(sender, e);
 
+        }
+
+        private void cbo_chambre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AP_PRO_Balladins_2_annee
 {
@@ -30,10 +23,11 @@ namespace AP_PRO_Balladins_2_annee
             txtNom.Text = varglobale.lehotel.nom;
             txtAdresse.Text = varglobale.lehotel.adr1;
             txtDescription.Text = varglobale.lehotel.deslong;
+            txtCourt.Text = varglobale.lehotel.descourt;
             txtTel.Text = varglobale.lehotel.tel;
             txtMdp.Text = varglobale.lehotel.password;
             txtPrix.Text = varglobale.lehotel.prix.ToString();
-            txtEquipement.Text = varglobale.lehotel.equipement.ToString();
+            //txtCourt.Text = varglobale.lehotel.equipement.ToString();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -48,7 +42,6 @@ namespace AP_PRO_Balladins_2_annee
 
         private void btnEditer_Click(object sender, EventArgs e)
         {
-
             DialogResult result = MessageBox.Show("Êtes vous sur de vouloir modifier l'hotel ?", "Confirmation", MessageBoxButtons.OKCancel);
 
 
@@ -56,7 +49,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 using (var db = new ConnexionDb())
                 {
-                    var hotel = db.hotel.Where(h => h.nohotel == varglobale.lehotel.nohotel).SingleOrDefault();
+                    var hotel = db.hotel.SingleOrDefault(h => h.nom == varglobale.lehotel.nom);
 
                     if (hotel != null)
                     {
@@ -115,6 +108,11 @@ namespace AP_PRO_Balladins_2_annee
                 
                 e.Handled = true;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

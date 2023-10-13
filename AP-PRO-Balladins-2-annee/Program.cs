@@ -13,7 +13,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmConnexion());
+            Application.Run(new FrmPrincipal());
         }
     }
 }

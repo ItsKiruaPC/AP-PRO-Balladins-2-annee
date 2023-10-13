@@ -1,14 +1,5 @@
-﻿using AP_PRO_Balladins_2_annee.Classe_passerelle;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity.Migrations;
-using System.Data.SqlClient;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AP_PRO_Balladins_2_annee
@@ -18,12 +9,12 @@ namespace AP_PRO_Balladins_2_annee
         public FrmConnexion()
         {
             InitializeComponent();
+            
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            txt_identifiant.Text = "LYON - DARDILLY";
-            txt_password.Text = "test";
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            txt_identifiant.Text = @"LYON - DARDILLY";
+            txt_password.Text = @"testtest";
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,13 +27,12 @@ namespace AP_PRO_Balladins_2_annee
                 try
                 {
                     
-                    if (varglobale.connexionDb.hotel.Where(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text).Any())
+                    if (varglobale.connexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text))
                     {
                         varglobale.lehotel = varglobale.connexionDb.hotel.FirstOrDefault(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text);
                         MessageBox.Show(@"Bienvenue: " + txt_identifiant.Text);
-                        var formulaireOuvert = new FrmGererHotel();
-                        formulaireOuvert.Show();
-
+                        this.Hide();
+                        varglobale.ouverture = true;
                     }
                     else
                     {
@@ -59,7 +49,8 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_create_Click(object sender, EventArgs e)
         {
             {
-                if (varglobale.connexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == null))
+                if (varglobale.connexionDb.hotel.Any(hotel =>
+                        hotel.nom == txt_identifiant.Text && hotel.password == null))
                 {
                     using (var db = new ConnexionDb())
                     {
@@ -74,7 +65,6 @@ namespace AP_PRO_Balladins_2_annee
                             lblinfos.Text = @"Veuillez ecrire le bon mot de passe";
                         }
                     }
-
                 }
                 else
                 {
@@ -84,14 +74,6 @@ namespace AP_PRO_Balladins_2_annee
             }
         }
 
-        private void txt_password_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                
-                e.Handled = true;
-            }
-        }
     }
 
 }

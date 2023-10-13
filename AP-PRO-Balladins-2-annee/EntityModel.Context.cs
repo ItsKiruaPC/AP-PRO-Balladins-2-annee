@@ -30,6 +30,5 @@ namespace AP_PRO_Balladins_2_annee
         public virtual DbSet<hotel> hotel { get; set; }
         public virtual DbSet<photo> photo { get; set; }
         public virtual DbSet<reservation> reservation { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

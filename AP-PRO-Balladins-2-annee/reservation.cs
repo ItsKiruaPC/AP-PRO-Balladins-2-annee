@@ -20,8 +20,8 @@ namespace AP_PRO_Balladins_2_annee
             this.chambre = new HashSet<chambre>();
         }
     
-        public Nullable<int> nohotel { get; set; }
         public int nores { get; set; }
+        public Nullable<int> nohotel { get; set; }
         public Nullable<System.DateTime> datedeb { get; set; }
         public Nullable<System.DateTime> datefin { get; set; }
         public string nom { get; set; }
