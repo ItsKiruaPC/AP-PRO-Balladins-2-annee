@@ -10,11 +10,9 @@ namespace AP_PRO_Balladins_2_annee
         {
             InitializeComponent();
         }
-
         private void FrmGererHotel_Load(object sender, EventArgs e)
         {
             RefreshHotel();
-            
         }
 
         public void RefreshHotel()
@@ -34,7 +32,6 @@ namespace AP_PRO_Balladins_2_annee
         {
 
         }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
@@ -43,41 +40,39 @@ namespace AP_PRO_Balladins_2_annee
         private void btnEditer_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Êtes vous sur de vouloir modifier l'hotel ?", "Confirmation", MessageBoxButtons.OKCancel);
-
-
+            
             if (result == DialogResult.OK)
             {
-                using (var db = new ConnexionDb())
-                {
-                    var hotel = db.hotel.SingleOrDefault(h => h.nom == varglobale.lehotel.nom);
+                var hotel = varglobale.lehotel;
 
-                    if (hotel != null)
+                if (hotel != null)
+                {
+                    hotel.tel = txtTel.Text;
+                    hotel.nom = txtNom.Text;
+                    hotel.adr1 = txtAdresse.Text;
+                    hotel.descourt = txtDescription.Text;
+                    hotel.password = txtMdp.Text;
+                    hotel.prix = Convert.ToDouble(txtPrix.Text);
+                    
+                    using (var db = new ConnexionDb())
                     {
-                        hotel.tel = txtTel.Text;
-                        hotel.nom = txtNom.Text;
-                        hotel.adr1 = txtAdresse.Text;
-                        hotel.descourt = txtDescription.Text;
-                        hotel.password = txtMdp.Text;
                         db.SaveChanges();
                     }
                 }
+                RefreshHotel();
             }
             else
             {
                 RefreshHotel();
             }
-
         }
-
         private void btnVoirMdp_Click(object sender, EventArgs e)
         {
             if (txtMdp.PasswordChar == '*')
             {
                 txtMdp.PasswordChar = '\0';
             }
-
             else 
-
             {
                 txtMdp.PasswordChar = '*';
             }
@@ -87,7 +82,6 @@ namespace AP_PRO_Balladins_2_annee
         {
             txtDescription.Multiline = true; 
             txtDescription.ScrollBars = ScrollBars.Vertical; // Activer la barre de défilement verticale si nécessaire
-            
         }
 
         private void txtDescription_TextChanged(object sender, EventArgs e)
