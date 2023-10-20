@@ -100,9 +100,7 @@ namespace AP_PRO_Balladins_2_annee
             varglobale.connexionDb.SaveChanges();
 
             FrmGererChambre_Load(sender, e);
-
         }
-
         private void cbo_chambre_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

@@ -17,6 +17,17 @@ namespace AP_PRO_Balladins_2_annee
 
         public void RefreshHotel()
         {
+            dataGridView1.ColumnCount=2;
+            dataGridView1.Columns[0].HeaderText = "Selection";
+            dataGridView1.Columns[1].HeaderText = "Equipements";
+            dataGridView1.Columns[0].Width = 80;
+            dataGridView1.Columns[1].Width = 140;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             txtMdp.PasswordChar = '*';
             txtNom.Text = varglobale.lehotel.nom;
             txtAdresse.Text = varglobale.lehotel.adr1;
@@ -25,7 +36,10 @@ namespace AP_PRO_Balladins_2_annee
             txtTel.Text = varglobale.lehotel.tel;
             txtMdp.Text = varglobale.lehotel.password;
             txtPrix.Text = varglobale.lehotel.prix.ToString();
-            //txtCourt.Text = varglobale.lehotel.equipement.ToString();
+            foreach (var emp in varglobale.lehotel.equipement)
+            {
+                dataGridView1.Rows.Add("", emp.lib);
+            }
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
