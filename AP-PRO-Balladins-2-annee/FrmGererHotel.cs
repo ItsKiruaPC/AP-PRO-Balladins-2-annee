@@ -39,7 +39,7 @@ namespace AP_PRO_Balladins_2_annee
             txtPrix.Text = lehotel.prix.ToString();
             foreach (var emp in connexionDb.equipement.Select(h => h.lib))
             {
-                dataGridView1.Rows.Add("", emp);
+                dataGridView1.Rows.Add("", emp);h
             }
         }
 
