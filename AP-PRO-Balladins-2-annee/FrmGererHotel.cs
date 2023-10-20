@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using static AP_PRO_Balladins_2_annee.varglobale;
 
 namespace AP_PRO_Balladins_2_annee
 {
@@ -29,16 +30,16 @@ namespace AP_PRO_Balladins_2_annee
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             txtMdp.PasswordChar = '*';
-            txtNom.Text = varglobale.lehotel.nom;
-            txtAdresse.Text = varglobale.lehotel.adr1;
-            txtDescription.Text = varglobale.lehotel.deslong;
-            txtCourt.Text = varglobale.lehotel.descourt;
-            txtTel.Text = varglobale.lehotel.tel;
-            txtMdp.Text = varglobale.lehotel.password;
-            txtPrix.Text = varglobale.lehotel.prix.ToString();
-            foreach (var emp in varglobale.lehotel.equipement)
+            txtNom.Text = lehotel.nom;
+            txtAdresse.Text = lehotel.adr1;
+            txtDescription.Text = lehotel.deslong;
+            txtCourt.Text = lehotel.descourt;
+            txtTel.Text = lehotel.tel;
+            txtMdp.Text = lehotel.password;
+            txtPrix.Text = lehotel.prix.ToString();
+            foreach (var emp in connexionDb.equipement.Select(h => h.lib))
             {
-                dataGridView1.Rows.Add("", emp.lib);
+                dataGridView1.Rows.Add("", emp);
             }
         }
 
@@ -57,7 +58,7 @@ namespace AP_PRO_Balladins_2_annee
             
             if (result == DialogResult.OK)
             {
-                var hotel = varglobale.lehotel;
+                var hotel = lehotel;
 
                 if (hotel != null)
                 {
