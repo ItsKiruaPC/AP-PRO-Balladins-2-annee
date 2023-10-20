@@ -10,6 +10,5 @@ namespace AP_PRO_Balladins_2_annee
         public static FrmConnexion frm2 = new FrmConnexion();
         public static FrmGererHotel frm3 = new FrmGererHotel();
         public static FrmGererChambre frm4 = new FrmGererChambre();
-        public static bool ouverture;
     }
 }

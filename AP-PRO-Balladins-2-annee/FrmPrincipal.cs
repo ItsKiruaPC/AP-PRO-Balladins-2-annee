@@ -37,13 +37,22 @@ namespace AP_PRO_Balladins_2_annee
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            btn_Chambre.Enabled = false;
+            btn_Hotel.Enabled = false;
+            btn_Reserv.Enabled = false;
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
             notifyIcon1.BalloonTipText = @"Bienvenue sur l'application";
             notifyIcon1.BalloonTipTitle = @"Balladin";
             notifyIcon1.ShowBalloonTip(100);
             
-            //lbl_Nom.Text = varglobale.lehotel.nom;
             OpenChildForm(new FrmConnexion());
+        }
+
+        public void Switch_Visibility(bool isVisible)
+        {
+            btn_Chambre.Enabled = isVisible;
+            btn_Hotel.Enabled = isVisible;
+            btn_Reserv.Enabled = isVisible;
         }
         private void chambreToolStripMenuItem_Click(object sender, EventArgs e)
         {
