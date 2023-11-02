@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
-using static AP_PRO_Balladins_2_annee.varglobale;
+using System.Xml.Linq;
+using AP_PRO_Balladins_2_annee.Classe_passerelle;
+using static AP_PRO_Balladins_2_annee.Classe_passerelle.Varglobale;
 
 namespace AP_PRO_Balladins_2_annee
 {
@@ -11,16 +15,19 @@ namespace AP_PRO_Balladins_2_annee
         {
             InitializeComponent();
         }
+
         private void FrmGererHotel_Load(object sender, EventArgs e)
         {
             RefreshHotel();
         }
 
-        public void RefreshHotel()
+        private void RefreshHotel()
         {
-            dataGridView1.ColumnCount=2;
-            dataGridView1.Columns[0].HeaderText = "Selection";
-            dataGridView1.Columns[1].HeaderText = "Equipements";
+            DataGridViewCheckBoxColumn test = new DataGridViewCheckBoxColumn();
+            test.HeaderText = @"Selection";
+            dataGridView1.Columns.Add(test);
+            dataGridView1.ColumnCount = 2;
+            dataGridView1.Columns[1].HeaderText = @"Equipements";
             dataGridView1.Columns[0].Width = 80;
             dataGridView1.Columns[1].Width = 140;
             dataGridView1.RowHeadersVisible = false;
@@ -28,20 +35,81 @@ namespace AP_PRO_Balladins_2_annee
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dataGridView1.Columns[0].ReadOnly = false;
+            dataGridView1.Columns[1].ReadOnly = true;
             txtMdp.PasswordChar = '*';
-            txtNom.Text = lehotel.nom;
-            txtAdresse.Text = lehotel.adr1;
-            txtDescription.Text = lehotel.deslong;
-            txtCourt.Text = lehotel.descourt;
-            txtTel.Text = lehotel.tel;
-            txtMdp.Text = lehotel.password;
-            txtPrix.Text = lehotel.prix.ToString();
-            foreach (var emp in connexionDb.equipement.Select(h => h.lib))
+            txtNom.Text = Lehotel.nom;
+            txtAdr1.Text = Lehotel.adr1;
+            txtAdr2.Text = Lehotel.adr2;
+            txtLong.Text = Lehotel.deslong;
+            txtCourt.Text = Lehotel.descourt;
+            txtTel.Text = Lehotel.tel;
+            txtMdp.Text = Lehotel.password;
+            txtPrix.Text = Lehotel.prix.ToString();
+            dataGridView1.Rows.Clear();
+            foreach (var emp in Varglobale.ConnexionDb.equipement)
             {
-                dataGridView1.Rows.Add("", emp);
+                dataGridView1.Rows.Add(Lehotel.equipement.Contains(emp), emp.lib);
             }
         }
+        //Attention en préparation...
+        /*private void AjoutEquipements()
+        {
+            using (var db = new ConnexionDb())
+            {
+                var hotel = db.hotel.Include(hotel1 => hotel1.equipement).FirstOrDefault(h => h.nohotel == Lehotel.nohotel);
+
+                if (hotel != null)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0] is DataGridViewCheckBoxCell checkBoxCell && Convert.ToBoolean(checkBoxCell.Value))
+                        {
+                            string libelleEquipement = row.Cells[1].Value.ToString();
+                            int noEquipement = Convert.ToInt32(row.Cells[0].Value);
+                            var equipement = Varglobale.ConnexionDb.equipement.FirstOrDefault(e => e.lib == libelleEquipement && e.noequ == noEquipement);
+                            if (equipement != null)
+                            {
+                                hotel.equipement.Add(equipement);
+                            }
+                        }
+                    }
+                    db.SaveChanges();
+
+                    MessageBox.Show($@"{hotel.equipement.Count} équipements ajoutés à l'hôtel.");
+                }
+                else
+                {
+                    MessageBox.Show(@"Assurez-vous d'avoir un hôtel.");
+                }
+            }*/
+        // var hotel = Lehotel;
+        // using (var db = new ConnexionDb())
+        // {
+        //     if (hotel != null)
+        //     {
+        //         List<equipement> equipementsAajouter = new List<equipement>();
+        //
+        //         foreach (DataGridViewRow emp in dataGridView1.Rows)
+        //         {
+        //             if (emp.Cells[0].Value is bool isChecked && isChecked)
+        //             {
+        //                 int noequ = Convert.ToInt32(emp.Cells[0].Value);
+        //                 var equipement = db.equipement.FirstOrDefault(e => e.noequ == noequ);
+        //
+        //                 if (equipement != null)
+        //                 {
+        //                     equipementsAajouter.Add(equipement);
+        //                 }
+        //             }
+        //         }
+        //         foreach (var emp in equipementsAajouter)
+        //         {
+        //             hotel.equipement.Add(emp);
+        //         }
+        //         db.SaveChanges();
+        //     }
+        // }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
@@ -54,18 +122,20 @@ namespace AP_PRO_Balladins_2_annee
 
         private void btnEditer_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Êtes vous sur de vouloir modifier l'hotel ?", "Confirmation", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show(@"Êtes vous sur de vouloir modifier l'hotel ?", @"Confirmation", MessageBoxButtons.OKCancel);
             
             if (result == DialogResult.OK)
             {
-                var hotel = lehotel;
+                var hotel = Lehotel;
 
                 if (hotel != null)
                 {
                     hotel.tel = txtTel.Text;
                     hotel.nom = txtNom.Text;
-                    hotel.adr1 = txtAdresse.Text;
-                    hotel.descourt = txtDescription.Text;
+                    hotel.adr1 = txtAdr1.Text;
+                    hotel.adr2 = txtAdr2.Text;
+                    hotel.deslong = txtLong.Text;
+                    hotel.descourt = txtCourt.Text;
                     hotel.password = txtMdp.Text;
                     hotel.prix = Convert.ToDouble(txtPrix.Text);
                     
@@ -74,6 +144,7 @@ namespace AP_PRO_Balladins_2_annee
                         db.SaveChanges();
                     }
                 }
+                //AjoutEquipements();
                 RefreshHotel();
             }
             else
@@ -87,41 +158,17 @@ namespace AP_PRO_Balladins_2_annee
             {
                 txtMdp.PasswordChar = '\0';
             }
-            else 
+            else
             {
                 txtMdp.PasswordChar = '*';
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtDescription.Multiline = true; 
-            txtDescription.ScrollBars = ScrollBars.Vertical; // Activer la barre de défilement verticale si nécessaire
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-            txtDescription.Multiline = true;
-            txtDescription.ScrollBars = ScrollBars.Vertical; // Activer la barre de défilement verticale si nécessaire
-        }
-
-        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtPrix_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                
                 e.Handled = true;
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

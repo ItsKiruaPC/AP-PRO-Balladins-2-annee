@@ -82,7 +82,7 @@
             // btn_Add
             // 
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(689, 451);
+            this.btn_Add.Location = new System.Drawing.Point(708, 452);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(137, 60);
             this.btn_Add.TabIndex = 4;
@@ -93,7 +93,7 @@
             // btn_Del
             // 
             this.btn_Del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Del.Location = new System.Drawing.Point(908, 451);
+            this.btn_Del.Location = new System.Drawing.Point(927, 452);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(137, 60);
             this.btn_Del.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(773, 140);
+            this.label2.Location = new System.Drawing.Point(792, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 29);
             this.label2.TabIndex = 8;
@@ -116,7 +116,7 @@
             // 
             this.cbo_chambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_chambre.FormattingEnabled = true;
-            this.cbo_chambre.Location = new System.Drawing.Point(807, 352);
+            this.cbo_chambre.Location = new System.Drawing.Point(826, 353);
             this.cbo_chambre.Name = "cbo_chambre";
             this.cbo_chambre.Size = new System.Drawing.Size(117, 37);
             this.cbo_chambre.TabIndex = 9;
@@ -127,7 +127,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(754, 309);
+            this.label3.Location = new System.Drawing.Point(773, 310);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(234, 29);
             this.label3.TabIndex = 10;
@@ -136,7 +136,7 @@
             // txt_Nom
             // 
             this.txt_Nom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Nom.Location = new System.Drawing.Point(751, 182);
+            this.txt_Nom.Location = new System.Drawing.Point(770, 183);
             this.txt_Nom.Name = "txt_Nom";
             this.txt_Nom.ReadOnly = true;
             this.txt_Nom.Size = new System.Drawing.Size(224, 35);

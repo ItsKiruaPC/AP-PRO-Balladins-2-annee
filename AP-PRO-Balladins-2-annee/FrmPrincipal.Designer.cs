@@ -33,7 +33,9 @@ namespace AP_PRO_Balladins_2_annee
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_deconnect = new System.Windows.Forms.Button();
             this.btn_Hotel = new System.Windows.Forms.Button();
             this.btn_Chambre = new System.Windows.Forms.Button();
             this.btn_Reserv = new System.Windows.Forms.Button();
@@ -45,16 +47,23 @@ namespace AP_PRO_Balladins_2_annee
             this.button1 = new System.Windows.Forms.Button();
             this.panel_Form = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel_Form.SuspendLayout();
             this.SuspendLayout();
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "Bienvenue sur l\'application";
+            this.notifyIcon1.BalloonTipTitle = "Balladin";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.btn_deconnect);
             this.panel1.Controls.Add(this.btn_Hotel);
             this.panel1.Controls.Add(this.btn_Chambre);
             this.panel1.Controls.Add(this.btn_Reserv);
@@ -62,6 +71,17 @@ namespace AP_PRO_Balladins_2_annee
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(304, 635);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_deconnect
+            // 
+            this.btn_deconnect.Location = new System.Drawing.Point(28, 572);
+            this.btn_deconnect.Name = "btn_deconnect";
+            this.btn_deconnect.Size = new System.Drawing.Size(253, 51);
+            this.btn_deconnect.TabIndex = 6;
+            this.btn_deconnect.Text = "Déconnexion";
+            this.btn_deconnect.UseVisualStyleBackColor = true;
+            this.btn_deconnect.Visible = false;
+            this.btn_deconnect.Click += new System.EventHandler(this.btn_deconnect_Click);
             // 
             // btn_Hotel
             // 
@@ -157,9 +177,9 @@ namespace AP_PRO_Balladins_2_annee
             // panel_Form
             // 
             this.panel_Form.Controls.Add(this.textBox1);
-            this.panel_Form.Location = new System.Drawing.Point(310, 155);
+            this.panel_Form.Location = new System.Drawing.Point(318, 155);
             this.panel_Form.Name = "panel_Form";
-            this.panel_Form.Size = new System.Drawing.Size(1089, 617);
+            this.panel_Form.Size = new System.Drawing.Size(1081, 617);
             this.panel_Form.TabIndex = 2;
             // 
             // textBox1
@@ -174,12 +194,6 @@ namespace AP_PRO_Balladins_2_annee
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Bienvenue chez Balladins";
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Visible = true;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -192,6 +206,7 @@ namespace AP_PRO_Balladins_2_annee
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -200,6 +215,8 @@ namespace AP_PRO_Balladins_2_annee
             this.panel_Form.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btn_deconnect;
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
 
