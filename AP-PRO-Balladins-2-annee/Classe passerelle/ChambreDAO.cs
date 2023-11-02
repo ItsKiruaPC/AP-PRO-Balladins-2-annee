@@ -5,19 +5,18 @@ using System.Windows.Forms;
 
 namespace AP_PRO_Balladins_2_annee.Classe_passerelle
 {
-    internal class ChambreDAO
+    internal class ChambreDao
     {
         public List<chambre> ChargerChambre()
         {
-            
             try
             {
                 // Récupérez tous les équipements de la base de données
-                return varglobale.lehotel.chambre.OrderBy(h => h.nochambre).ToList();
+                return Varglobale.Lehotel.chambre.OrderBy(h => h.nochambre).ToList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Une erreur s'est produite : {ex.Message}");
+                MessageBox.Show($@"Une erreur s'est produite : {ex.Message}");
                 return null;
             }
         }
@@ -31,7 +30,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Une erreur s'est produite : {ex.Message}");
+                MessageBox.Show($@"Une erreur s'est produite : {ex.Message}");
                 return null;
             }
         }

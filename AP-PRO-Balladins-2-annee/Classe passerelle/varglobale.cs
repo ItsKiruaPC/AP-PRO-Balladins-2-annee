@@ -1,14 +1,12 @@
-﻿using System.Security;
-
-namespace AP_PRO_Balladins_2_annee
+﻿namespace AP_PRO_Balladins_2_annee.Classe_passerelle
 {
-    public class varglobale
+    public static class Varglobale
     {
-        public static hotel lehotel;
-        public static ConnexionDb connexionDb = new ConnexionDb();
-        public static FrmPrincipal frm1 = new FrmPrincipal();
-        public static FrmConnexion frm2 = new FrmConnexion();
-        public static FrmGererHotel frm3 = new FrmGererHotel();
-        public static FrmGererChambre frm4 = new FrmGererChambre();
+        public static hotel Lehotel;
+        public static ConnexionDb ConnexionDb = new ConnexionDb();
+        public static FrmPrincipal Frm1 = new FrmPrincipal();
+        public static FrmConnexion Frm2 = new FrmConnexion();
+        public static FrmGererHotel Frm3 = new FrmGererHotel();
+        public static FrmGererChambre Frm4 = new FrmGererChambre();
     }
 }

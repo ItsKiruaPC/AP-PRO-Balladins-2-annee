@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using AP_PRO_Balladins_2_annee.Classe_passerelle;
 
 namespace AP_PRO_Balladins_2_annee
 {
     public partial class FrmConnexion : Form
     {
-        FrmPrincipal MainForm = Application.OpenForms.OfType<FrmPrincipal>().FirstOrDefault();
+        FrmPrincipal _mainForm = Application.OpenForms.OfType<FrmPrincipal>().FirstOrDefault();
 
         public FrmConnexion()
         {
@@ -27,12 +28,12 @@ namespace AP_PRO_Balladins_2_annee
             {
                 try
                 {
-                    if (varglobale.connexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text))
+                    if (Varglobale.ConnexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text))
                     {
-                        varglobale.lehotel = varglobale.connexionDb.hotel.FirstOrDefault(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text);
+                        Varglobale.Lehotel = Varglobale.ConnexionDb.hotel.FirstOrDefault(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text);
                         MessageBox.Show(@"Bienvenue: " + txt_identifiant.Text);
                         this.Hide();
-                        MainForm.Switch_Visibility(true);
+                        _mainForm.Switch_Visibility(true);
                     }
                     else
                     {
@@ -48,7 +49,7 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_create_Click(object sender, EventArgs e)
         {
             {
-                if (varglobale.connexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == null))
+                if (Varglobale.ConnexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == null))
                 {
                     using (var db = new ConnexionDb())
                     {

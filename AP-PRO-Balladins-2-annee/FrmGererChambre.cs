@@ -12,7 +12,7 @@ namespace AP_PRO_Balladins_2_annee
             InitializeComponent();
         }
 
-        private readonly ChambreDAO _chambreHelp = new ChambreDAO();
+        private readonly ChambreDao _chambreHelp = new ChambreDao();
 
         private void FrmGererChambre_Load(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace AP_PRO_Balladins_2_annee
             grd_view.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grd_view.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             
-            txt_Nom.Text = varglobale.lehotel.nom;
+            txt_Nom.Text = Varglobale.Lehotel.nom;
             grd_view.Rows.Clear();
 
             var chambreNames = _chambreHelp.ChargerChambre();
@@ -43,22 +43,10 @@ namespace AP_PRO_Balladins_2_annee
 
             cbo_chambre.DataSource = listChambre;
 
-            if (varglobale.lehotel.nom == null) return;
+            if (Varglobale.Lehotel.nom == null) return;
             foreach(var emp in chambreNames)
                 grd_view.Rows.Add(emp.nochambre, emp.hotel.nom);
 
-        }
-
-        private void chambreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var frm1 = new FrmGererHotel();
-            frm1.ShowDialog();
-        }
-
-        private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -66,7 +54,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 var unC = new chambre
                 {
-                    nohotel = varglobale.lehotel.nohotel,
+                    nohotel = Varglobale.Lehotel.nohotel,
                     nochambre = Convert.ToInt32(cbo_chambre.SelectedItem)
                 };
                 _chambreHelp.ListChambre();
@@ -77,8 +65,8 @@ namespace AP_PRO_Balladins_2_annee
                 }
                 if (unC.nochambre != lol.nochambre || lol.nochambre == 0)
                 {
-                    varglobale.lehotel.chambre.Add(unC);
-                    varglobale.connexionDb.SaveChanges();
+                    Varglobale.Lehotel.chambre.Add(unC);
+                    Varglobale.ConnexionDb.SaveChanges();
                     FrmGererChambre_Load(sender, e);
                 }
                 else
@@ -95,9 +83,9 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_Del_Click(object sender, EventArgs e)
         {
             var nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
-            var chambreasupr = varglobale.lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre == nochambre);
-            varglobale.lehotel.chambre.Remove(chambreasupr);
-            varglobale.connexionDb.SaveChanges();
+            var chambreasupr = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre == nochambre);
+            Varglobale.Lehotel.chambre.Remove(chambreasupr);
+            Varglobale.ConnexionDb.SaveChanges();
 
             FrmGererChambre_Load(sender, e);
         }
