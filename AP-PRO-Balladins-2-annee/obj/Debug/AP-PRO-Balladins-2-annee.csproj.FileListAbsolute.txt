@@ -70,3 +70,23 @@ C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmPrincipal.resources
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.exe.config
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.exe
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.pdb
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.dll
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.xml
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.AssemblyReference.cache
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.SuggestedBindingRedirects.cache
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmConnexion.resources
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererChambre.resources
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererHotel.resources
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmPrincipal.resources
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.Properties.Resources.resources
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.GenerateResource.cache
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CoreCompileInputs.cache
+C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CopyComplete
