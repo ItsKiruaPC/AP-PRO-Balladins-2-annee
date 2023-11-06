@@ -62,7 +62,6 @@ C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.AssemblyReference.cache
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmConnexion.resources
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererChambre.resources
-C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmGererHotel.resources
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.Properties.Resources.resources
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.GenerateResource.cache
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CoreCompileInputs.cache
@@ -70,6 +69,7 @@ C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
 C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmPrincipal.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.SuggestedBindingRedirects.cache
 C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
 C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb
 C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bin\Debug\AP-PRO-Balladins-2-annee.exe.config
@@ -90,3 +90,5 @@ C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\o
 C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.GenerateResource.cache
 C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CoreCompileInputs.cache
 C:\Users\itski\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CopyComplete
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.TogleButton.resources
+C:\Users\Adrien Fevre\RiderProjects\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmReservation.resources

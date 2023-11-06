@@ -109,8 +109,9 @@ namespace AP_PRO_Balladins_2_annee
             this.btn_Reserv.Name = "btn_Reserv";
             this.btn_Reserv.Size = new System.Drawing.Size(253, 51);
             this.btn_Reserv.TabIndex = 3;
-            this.btn_Reserv.Text = "Reservation";
+            this.btn_Reserv.Text = "Réservation";
             this.btn_Reserv.UseVisualStyleBackColor = true;
+            this.btn_Reserv.Click += new System.EventHandler(this.btn_Reserv_Click);
             // 
             // lbl_Nom
             // 
@@ -147,8 +148,9 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.btn_Maximize.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximize.Image")));
             this.btn_Maximize.Location = new System.Drawing.Point(1325, 0);
+            this.btn_Maximize.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Maximize.Name = "btn_Maximize";
-            this.btn_Maximize.Size = new System.Drawing.Size(40, 38);
+            this.btn_Maximize.Size = new System.Drawing.Size(43, 38);
             this.btn_Maximize.TabIndex = 20;
             this.btn_Maximize.UseVisualStyleBackColor = true;
             this.btn_Maximize.Click += new System.EventHandler(this.btn_Maximize_Click);

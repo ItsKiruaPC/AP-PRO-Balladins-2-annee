@@ -59,12 +59,16 @@ namespace AP_PRO_Balladins_2_annee
         }
         private void btn_Hotel_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmGererHotel());
+            OpenChildForm(new TogleButton());
         }
 
         private void btn_Chambre_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FrmGererChambre());
+        }
+        private void btn_Reserv_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmReservation());
         }
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -97,5 +101,7 @@ namespace AP_PRO_Balladins_2_annee
             HotelDao.DeconnexionHotel();
             FrmPrincipal_Load(sender,e);
         }
+
+        
     }
 }
