@@ -34,11 +34,14 @@ namespace AP_PRO_Balladins_2_annee
             grd_liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             chk_chambre.Items.Clear();
             lbl_Hotel.Text = Varglobale.Lehotel.nom;
+            //chambre uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre.ToString());
             foreach (var emp in Varglobale.Lehotel.reservation)
             {
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces,Varglobale.ConnexionDb.chambre.Select(c=>c.nochambre).ToString(), emp.nores);
+                var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, numeroChambre, emp.nores);
+
             }
-            
+
             foreach (var emp in Varglobale.Lehotel.chambre)
             {
                 chk_chambre.Items.Add(emp.nochambre);
@@ -54,7 +57,8 @@ namespace AP_PRO_Balladins_2_annee
                 .Include(reservation => reservation.chambre).ToList();
             foreach (var emp in test)
             {
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.chambre.Select(c => c.nochambre.ToString()), emp.nores);
+                var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, numeroChambre, emp.nores);
             }
         }
         //Permet de modifier la réservation en fonction de la ligne sélectionné puis on change les données
