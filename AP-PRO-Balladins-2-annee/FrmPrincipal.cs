@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 using AP_PRO_Balladins_2_annee.Classe_passerelle;
 
 namespace AP_PRO_Balladins_2_annee
@@ -15,7 +16,7 @@ namespace AP_PRO_Balladins_2_annee
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
         //<--jusqu'içi
-        
+        public string nom_header;
         private Form _currentChildForm;
         public FrmPrincipal()
         {
@@ -44,6 +45,7 @@ namespace AP_PRO_Balladins_2_annee
 
         public void Switch_Visibility(bool isVisible)
         {
+            lbl_Nom.Text = nom_header;
             btn_Chambre.Enabled = isVisible;
             btn_Hotel.Enabled = isVisible;
             btn_Reserv.Enabled = isVisible;
@@ -102,7 +104,6 @@ namespace AP_PRO_Balladins_2_annee
             HotelDao.DeconnexionHotel();
             FrmPrincipal_Load(sender,e);
         }
-
         
     }
 }

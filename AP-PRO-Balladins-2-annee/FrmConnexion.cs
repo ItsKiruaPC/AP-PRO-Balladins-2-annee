@@ -8,7 +8,6 @@ namespace AP_PRO_Balladins_2_annee
     public partial class FrmConnexion : Form
     {
         FrmPrincipal _mainForm = Application.OpenForms.OfType<FrmPrincipal>().FirstOrDefault();
-
         public FrmConnexion()
         {
             InitializeComponent();
@@ -31,9 +30,10 @@ namespace AP_PRO_Balladins_2_annee
                     if (Varglobale.ConnexionDb.hotel.Any(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text))
                     {
                         Varglobale.Lehotel = Varglobale.ConnexionDb.hotel.FirstOrDefault(hotel => hotel.nom == txt_identifiant.Text && hotel.password == txt_password.Text);
-                        MessageBox.Show(@"Bienvenue: " + txt_identifiant.Text);
                         this.Hide();
+                        _mainForm.nom_header = Varglobale.Lehotel.nom;
                         _mainForm.Switch_Visibility(true);
+                        
                     }
                     else
                     {
@@ -58,6 +58,7 @@ namespace AP_PRO_Balladins_2_annee
                         {
                             result.password = txt_password.Text;
                             db.SaveChanges();
+                            
                         }
                         else
                         {

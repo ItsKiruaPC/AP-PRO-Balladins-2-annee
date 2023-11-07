@@ -17,7 +17,6 @@ namespace AP_PRO_Balladins_2_annee
         //Permet de générer les données tel que le datagridview, la liste des chambres
         private void FrmReservation_Load(object sender, EventArgs e)
         {
-
             grd_liste.ColumnCount = 7;
             grd_liste.Columns[0].HeaderText = @"Date début";
             grd_liste.Columns[1].HeaderText = @"Date fin";
@@ -36,7 +35,6 @@ namespace AP_PRO_Balladins_2_annee
             lbl_Hotel.Text = Varglobale.Lehotel.nom;
             grd_liste.Rows.Clear();
             var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
-            
             foreach (var emp in Varglobale.Lehotel.reservation)
             {
                 var lesnoChambre = "";
@@ -44,7 +42,8 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     lesnoChambre += $"{uneChambre.nochambre}, ";
                 }
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, lesnoChambre, emp.nores);
+                
+                grd_liste.Rows.Add(emp.datedeb.Value.Date, emp.datefin.Value.Date, emp.nom, emp.email, emp.codeacces, lesnoChambre.Substring(0, lesnoChambre.Length-2), emp.nores);
             }
             
             foreach (var emp in Varglobale.Lehotel.chambre)
@@ -62,7 +61,12 @@ namespace AP_PRO_Balladins_2_annee
                 .Include(reservation => reservation.chambre).ToList();
             foreach (var emp in test)
             {
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.chambre.Select(c => c.nochambre.ToString()), emp.nores);
+                var lesnoChambre = "";
+                foreach (var uneChambre in emp.chambre)
+                {
+                    lesnoChambre += $"{uneChambre.nochambre}, ";
+                }
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, lesnoChambre, emp.nores);
             }
         }
         //Permet de modifier la réservation en fonction de la ligne sélectionné puis on change les données
@@ -159,12 +163,11 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_delete_Click(object sender, EventArgs e)
         {
             var test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[6].Value);
-            var test2 = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[5].Value);
             var hotel = Varglobale.Lehotel;
             if (hotel != null)
             {
-                DateTime dateDebut = date_debut_edit.Value.Date;
-                DateTime dateFin = date_fin_edit.Value.Date;
+                DateTime dateDebut = date_debut_edit.Value;
+                DateTime dateFin = date_fin_edit.Value;
                 
                 var uneReserv = Varglobale.ConnexionDb.reservation.FirstOrDefault(h =>
                     h.datedeb == dateDebut && h.datefin == dateFin &&
@@ -178,7 +181,6 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     Varglobale.ConnexionDb.reservation.Remove(uneReserv);
                     Varglobale.ConnexionDb.SaveChanges();
-                    MessageBox.Show(@"Supprimé");
                     FrmReservation_Load(sender, e);
                 }
             }

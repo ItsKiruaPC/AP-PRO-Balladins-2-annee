@@ -180,7 +180,10 @@
       <LastGenOutput>EntityModel.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\hide_regular_24.png" />
+    <Content Include="Resources\minus_regular_24.png" />
     <Content Include="Resources\show_regular_24.png" />
+    <Content Include="Resources\window_regular_24.png" />
+    <Content Include="Resources\x_regular_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

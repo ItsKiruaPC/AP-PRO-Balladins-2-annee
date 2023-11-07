@@ -128,6 +128,7 @@
             // 
             // txtLong
             // 
+            this.txtLong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLong.Location = new System.Drawing.Point(480, 69);
             this.txtLong.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtLong.Multiline = true;
@@ -138,6 +139,7 @@
             // 
             // txtCourt
             // 
+            this.txtCourt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCourt.Location = new System.Drawing.Point(480, 306);
             this.txtCourt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtCourt.Multiline = true;
@@ -148,6 +150,7 @@
             // 
             // btnEditer
             // 
+            this.btnEditer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEditer.Location = new System.Drawing.Point(145, 502);
             this.btnEditer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnEditer.Name = "btnEditer";
@@ -180,6 +183,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,6 +196,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,6 +209,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -236,6 +242,7 @@
             // 
             // chklist
             // 
+            this.chklist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.chklist.CheckOnClick = true;
             this.chklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chklist.FormattingEnabled = true;

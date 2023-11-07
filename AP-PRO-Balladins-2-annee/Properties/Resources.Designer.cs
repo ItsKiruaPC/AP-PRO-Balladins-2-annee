@@ -72,9 +72,39 @@ namespace AP_PRO_Balladins_2_annee.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus_regular_24 {
+            get {
+                object obj = ResourceManager.GetObject("minus_regular_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap show_regular_24 {
             get {
                 object obj = ResourceManager.GetObject("show_regular_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap window_regular_24 {
+            get {
+                object obj = ResourceManager.GetObject("window_regular_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_regular_24 {
+            get {
+                object obj = ResourceManager.GetObject("x_regular_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
