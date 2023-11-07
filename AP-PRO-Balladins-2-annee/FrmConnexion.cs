@@ -16,7 +16,7 @@ namespace AP_PRO_Balladins_2_annee
         private void Form1_Load(object sender, EventArgs e)
         {
             txt_identifiant.Text = @"LYON - DARDILLY";
-            txt_password.Text = @"testtest";
+            txt_password.Text = @"test";
         }
         private void button1_Click(object sender, EventArgs e)
         {

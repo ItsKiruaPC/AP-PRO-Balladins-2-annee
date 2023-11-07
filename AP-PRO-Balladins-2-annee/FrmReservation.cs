@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 using AP_PRO_Balladins_2_annee.Classe_passerelle;
 
@@ -14,6 +15,7 @@ namespace AP_PRO_Balladins_2_annee
         //Permet de générer les données tel que le datagridview, la liste des chambres
         private void FrmReservation_Load(object sender, EventArgs e)
         {
+
             grd_liste.ColumnCount = 6;
             grd_liste.Columns[0].HeaderText = @"Date début";
             grd_liste.Columns[1].HeaderText = @"Date fin";
@@ -82,7 +84,7 @@ namespace AP_PRO_Balladins_2_annee
 
             return random.Next(min, max + 1);
         }
-        //Permet d'ajouter une reservation SANS CHAMBRE!!!
+        //Permet d'ajouter une reservation
         private void btn_add_Click(object sender, EventArgs e)
         {
             var hotel = Varglobale.Lehotel;
@@ -97,18 +99,28 @@ namespace AP_PRO_Balladins_2_annee
                 }
                 else
                 {
+                    
                     var nouvelleReserv = new reservation()
                     {
+                        nores = Varglobale.Lehotel.reservation.Count > 0 ? Varglobale.Lehotel.reservation.Max(res => res.nores) + 1 : 1,
                         datedeb = date_debut.Value,
                         datefin = date_fin.Value,
                         nom = txt_nom.Text,
                         email = txt_mail.Text,
                         codeacces = Convert.ToDouble(generateurMdp())
+                        
                     };
-                    hotel.reservation.Add(nouvelleReserv);
+                    foreach (var unNoChambre in chk_chambre.CheckedItems)
+                    {
+                        chambre uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre.ToString() == unNoChambre.ToString());
+                        nouvelleReserv.chambre.Add(uneChambre);
+                    }
+                    
+                    Varglobale.Lehotel.reservation.Add(nouvelleReserv);
                     Varglobale.ConnexionDb.SaveChanges();
                     MessageBox.Show("Ajouté");
                     FrmReservation_Load(sender, e);
+                    
                 }
             }
         }

@@ -20,8 +20,10 @@ namespace AP_PRO_Balladins_2_annee
                 RefreshHotel();
             }
 
+            //Rafraichit les informations de l'hotel lors des modifications de celui-ci
             private void RefreshHotel()
             {
+                
                 txtMdp.PasswordChar = '*';
                 txtNom.Text = Varglobale.Lehotel.nom;
                 txtAdr1.Text = Varglobale.Lehotel.adr1;
@@ -32,17 +34,19 @@ namespace AP_PRO_Balladins_2_annee
                 txtMdp.Text = Varglobale.Lehotel.password;
                 txtPrix.Text = Varglobale.Lehotel.prix.ToString();
                 chklist.Items.Clear();
+
+            //Affiche les équipements dans des boutons radios
                 foreach (var emp in Varglobale.ConnexionDb.equipement)
                 {
                     chklist.Items.Add(emp.lib);
                     chklist.SetItemChecked(chklist.Items.Count - 1, Varglobale.Lehotel.equipement.Contains(emp));
                 }
             }
-
-            private void AjoutEquipements()
+            //Permet d'afficher les informations de l'hotel (Telephone,Nom,Adresse,Description,MDP,Equipement)
+            private void AjoutElements()
             {
                 var hotel = Varglobale.Lehotel;
-
+           
                 hotel.tel = txtTel.Text;
                 hotel.nom = txtNom.Text;
                 hotel.adr1 = txtAdr1.Text;
@@ -53,12 +57,13 @@ namespace AP_PRO_Balladins_2_annee
                 hotel.prix = Convert.ToDouble(txtPrix.Text);
                 hotel.equipement.Clear();
 
+            //Affiche dans des boutons radio les équipements de l'hotel, possibilité d'ajouter ou supprimer des équipements 
                 foreach (var emp in chklist.CheckedItems)
                 {
                     var unEquipement = Varglobale.ConnexionDb.equipement.FirstOrDefault(e => e.lib == emp.ToString());
                     hotel.equipement.Add(unEquipement);
                 }
-
+            //Sauvegarde les nouvelles informations dans la base de donnée
                 try
                 {
                     Varglobale.ConnexionDb.SaveChanges();
@@ -66,7 +71,7 @@ namespace AP_PRO_Balladins_2_annee
                 }
                 catch (DbEntityValidationException ex)
                 {
-
+                //Fonctions de débogage pour parcourir les erreurs
                     foreach (var validationErrors in ex.EntityValidationErrors)
                     {
                         foreach (var validationError in validationErrors.ValidationErrors)
@@ -86,8 +91,7 @@ namespace AP_PRO_Balladins_2_annee
                             innerException = innerException.InnerException;
                         }
 
-                        MessageBox.Show(
-                            $@"Erreur lors de la mise à jour de la base de données : {innerException.Message}");
+                        MessageBox.Show($@"Erreur lors de la mise à jour de la base de données : {innerException.Message}");
                     }
                     else
                     {
@@ -96,21 +100,26 @@ namespace AP_PRO_Balladins_2_annee
                 }
             }
 
+            //Permet la modification des informations de l'hotel
             private void btnEditer_Click(object sender, EventArgs e)
             {
+                //Demande à l'utilisateur la confirmation de la modification
                 DialogResult result = MessageBox.Show(@"Êtes vous sur de vouloir modifier l'hotel ?", @"Confirmation",
                     MessageBoxButtons.OKCancel);
 
                 if (result == DialogResult.OK)
                 {
-                    AjoutEquipements();
+                    //Appelle la méthode AjoutElement si la modification est voulu
+                    AjoutElements();
                 }
                 else
                 {
+                    //Appelle la méthode RefreshHotel en cas d'erreur de l'utilisateur lors de la modificatiion
                     RefreshHotel();
                 }
             }
 
+            //Affiche ou cache le mot de passe de l'hotel (element de sécurité)
             private void btnVoirMdp_Click(object sender, EventArgs e)
             {
                 if (txtMdp.PasswordChar == '*')
@@ -123,6 +132,7 @@ namespace AP_PRO_Balladins_2_annee
                 }
             }
 
+            //Interdit la saisie de caractére différent d'un chiffre ou d'un numéro
             private void txtPrix_KeyPress(object sender, KeyPressEventArgs e)
             {
                 if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
