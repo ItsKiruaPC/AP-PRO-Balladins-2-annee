@@ -14,7 +14,7 @@ namespace AP_PRO_Balladins_2_annee
 
         private readonly ChambreDao _chambreHelp = new ChambreDao();
 
-        
+        //Affiche toute les informations des chambres au démarrage de l'appli
         private void FrmGererChambre_Load(object sender, EventArgs e)
         {
             
@@ -27,7 +27,7 @@ namespace AP_PRO_Balladins_2_annee
             grd_view.AllowUserToAddRows = false;
             grd_view.AllowUserToResizeRows = false;
             grd_view.AllowUserToResizeColumns = false;
-            
+            //configure un DataGridView pour l'édition programmée, la sélection de lignes complètes, l'ajustement automatique des colonnes, et l'alignement du contenu au centre pour les lignes et les en-têtes de colonnes.
             grd_view.EditMode = DataGridViewEditMode.EditProgrammatically;
             grd_view.BackgroundColor = System.Drawing.SystemColors.Control;
             grd_view.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -49,6 +49,7 @@ namespace AP_PRO_Balladins_2_annee
                 grd_view.Rows.Add(emp.nochambre, emp.hotel.nom);
 
         }
+        //Permet d'ajouter une chambre dans la base de donnée
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try

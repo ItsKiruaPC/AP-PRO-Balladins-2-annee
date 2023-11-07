@@ -16,14 +16,15 @@ namespace AP_PRO_Balladins_2_annee
         private void FrmReservation_Load(object sender, EventArgs e)
         {
 
-            grd_liste.ColumnCount = 6;
+            grd_liste.ColumnCount = 7;
             grd_liste.Columns[0].HeaderText = @"Date début";
             grd_liste.Columns[1].HeaderText = @"Date fin";
             grd_liste.Columns[2].HeaderText = @"Nom";
             grd_liste.Columns[3].HeaderText = @"Email";
             grd_liste.Columns[4].HeaderText = @"Code accèes";
-            grd_liste.Columns[5].HeaderText = @"Nores";
-            grd_liste.Columns[5].Visible = true;
+            grd_liste.Columns[6].HeaderText = @"Nores";
+            grd_liste.Columns[5].HeaderText = @"Chambre";
+            grd_liste.Columns[6].Visible = false;
             grd_liste.RowHeadersVisible = false;
             grd_liste.AllowUserToAddRows = false;
             grd_liste.AllowUserToResizeRows = false;
@@ -31,9 +32,9 @@ namespace AP_PRO_Balladins_2_annee
             grd_liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             chk_chambre.Items.Clear();
             lbl_Hotel.Text = Varglobale.Lehotel.nom;
-            foreach (var emp in Varglobale.Lehotel.reservation)
+            foreach (var emp in Varglobale.Lehotel.reservation )
             {
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.nores);
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces,emp.chambre.Select(c=>c.nochambre.ToString()), emp.nores);
             }
             
             foreach (var emp in Varglobale.Lehotel.chambre)
@@ -50,7 +51,7 @@ namespace AP_PRO_Balladins_2_annee
                 .Where(h => h.datedeb == dateDebutRecherche && h.nohotel == Varglobale.Lehotel.nohotel).ToList();
             foreach (var emp in test)
             {
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.nores);
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.chambre.Select(c => c.nochambre.ToString()), emp.nores);
             }
         }
         //Permet de modifier la réservation en fonction de la ligne sélectionné puis on change les données
