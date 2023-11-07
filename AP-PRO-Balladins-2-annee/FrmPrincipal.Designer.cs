@@ -124,6 +124,7 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(195)))), ((int)(((byte)(75)))));
             this.panel2.Controls.Add(this.lbl_Nom);
             this.panel2.Controls.Add(this.panel3);
@@ -134,10 +135,10 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.btn_Maximize);
             this.panel3.Controls.Add(this.btn_Minimize);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1411, 38);
@@ -146,6 +147,7 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // btn_Maximize
             // 
+            this.btn_Maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Maximize.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximize.Image")));
             this.btn_Maximize.Location = new System.Drawing.Point(1325, 0);
             this.btn_Maximize.Margin = new System.Windows.Forms.Padding(0);
@@ -157,6 +159,7 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // btn_Minimize
             // 
+            this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Minimize.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimize.Image")));
             this.btn_Minimize.Location = new System.Drawing.Point(1279, 0);
             this.btn_Minimize.Name = "btn_Minimize";
@@ -167,7 +170,7 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // button1
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(1371, 0);
             this.button1.Name = "button1";

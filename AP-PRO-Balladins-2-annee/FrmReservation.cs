@@ -34,14 +34,19 @@ namespace AP_PRO_Balladins_2_annee
             grd_liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             chk_chambre.Items.Clear();
             lbl_Hotel.Text = Varglobale.Lehotel.nom;
-            //chambre uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre.ToString());
+            grd_liste.Rows.Clear();
+            var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
+            
             foreach (var emp in Varglobale.Lehotel.reservation)
             {
-                var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, numeroChambre, emp.nores);
-
+                var lesnoChambre = "";
+                foreach (var uneChambre in emp.chambre)
+                {
+                    lesnoChambre += $"{uneChambre.nochambre}, ";
+                }
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, lesnoChambre, emp.nores);
             }
-
+            
             foreach (var emp in Varglobale.Lehotel.chambre)
             {
                 chk_chambre.Items.Add(emp.nochambre);
@@ -57,15 +62,14 @@ namespace AP_PRO_Balladins_2_annee
                 .Include(reservation => reservation.chambre).ToList();
             foreach (var emp in test)
             {
-                var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, numeroChambre, emp.nores);
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.chambre.Select(c => c.nochambre.ToString()), emp.nores);
             }
         }
         //Permet de modifier la réservation en fonction de la ligne sélectionné puis on change les données
         private void btn_edit_Click(object sender, EventArgs e)
         {
             var hotel = Varglobale.Lehotel;
-            var test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[5].Value);
+            var test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[6].Value);
             var reserv = Varglobale.ConnexionDb.reservation.FirstOrDefault(h =>
                 h.nores == test );
             if (IsValidEmail(txt_mail_edit.Text))
@@ -154,14 +158,22 @@ namespace AP_PRO_Balladins_2_annee
         //Permet de supprimer les réservations
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            var test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[6].Value);
+            var test2 = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[5].Value);
             var hotel = Varglobale.Lehotel;
             if (hotel != null)
             {
                 DateTime dateDebut = date_debut_edit.Value.Date;
                 DateTime dateFin = date_fin_edit.Value.Date;
+                
                 var uneReserv = Varglobale.ConnexionDb.reservation.FirstOrDefault(h =>
                     h.datedeb == dateDebut && h.datefin == dateFin &&
-                    h.nom == txt_nom_edit.Text && h.email == txt_mail_edit.Text && h.nohotel == hotel.nohotel);
+                    h.nom == txt_nom_edit.Text && h.email == txt_mail_edit.Text && h.nores == test);
+                foreach (var uneChambre in Varglobale.Lehotel.chambre)
+                {
+                    uneChambre.reservation.Remove(uneReserv);
+                }
+                
                 if (uneReserv != null)
                 {
                     Varglobale.ConnexionDb.reservation.Remove(uneReserv);

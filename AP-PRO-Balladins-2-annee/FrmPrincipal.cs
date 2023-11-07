@@ -83,7 +83,13 @@ namespace AP_PRO_Balladins_2_annee
 
         private void btn_Maximize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
+
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+                WindowState = FormWindowState.Normal;
         }
 
         private void btn_Minimize_Click(object sender, EventArgs e)

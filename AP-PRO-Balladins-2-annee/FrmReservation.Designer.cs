@@ -254,6 +254,7 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.grd_liste.AllowUserToAddRows = false;
             this.grd_liste.AllowUserToDeleteRows = false;
+            this.grd_liste.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grd_liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grd_liste.Location = new System.Drawing.Point(8, 69);
             this.grd_liste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
