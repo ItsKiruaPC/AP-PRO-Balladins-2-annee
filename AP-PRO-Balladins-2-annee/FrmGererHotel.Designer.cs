@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TogleButton));
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtTel = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.btnEditer = new System.Windows.Forms.Button();
             this.label_prix = new System.Windows.Forms.Label();
             this.txtPrix = new System.Windows.Forms.TextBox();
-            this.btnVoirMdp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +49,9 @@
             this.txtAdr2 = new System.Windows.Forms.TextBox();
             this.chklist = new System.Windows.Forms.CheckedListBox();
             this.txtAdr1 = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chkBox1 = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNom
@@ -175,15 +178,6 @@
             this.txtPrix.TabIndex = 12;
             this.txtPrix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrix_KeyPress);
             // 
-            // btnVoirMdp
-            // 
-            this.btnVoirMdp.Location = new System.Drawing.Point(331, 384);
-            this.btnVoirMdp.Name = "btnVoirMdp";
-            this.btnVoirMdp.Size = new System.Drawing.Size(33, 23);
-            this.btnVoirMdp.TabIndex = 13;
-            this.btnVoirMdp.UseVisualStyleBackColor = true;
-            this.btnVoirMdp.Click += new System.EventHandler(this.btnVoirMdp_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -260,12 +254,28 @@
             this.txtAdr1.Size = new System.Drawing.Size(194, 26);
             this.txtAdr1.TabIndex = 21;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // chkBox1
+            // 
+            this.chkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBox1.AutoSize = true;
+            this.chkBox1.Location = new System.Drawing.Point(319, 367);
+            this.chkBox1.Name = "chkBox1";
+            this.chkBox1.Size = new System.Drawing.Size(6, 6);
+            this.chkBox1.TabIndex = 22;
+            this.chkBox1.UseVisualStyleBackColor = true;
+            this.chkBox1.CheckStateChanged += new System.EventHandler(this.chkBox1_CheckStateChanged);
+            // 
             // TogleButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(22)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(1066, 585);
+            this.Controls.Add(this.chkBox1);
             this.Controls.Add(this.txtAdr1);
             this.Controls.Add(this.chklist);
             this.Controls.Add(this.lblAdresse2);
@@ -273,7 +283,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnVoirMdp);
             this.Controls.Add(this.txtPrix);
             this.Controls.Add(this.label_prix);
             this.Controls.Add(this.btnEditer);
@@ -292,9 +301,14 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "TogleButton";
             this.Load += new System.EventHandler(this.FrmGererHotel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.CheckBox chkBox1;
+
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
         private System.Windows.Forms.CheckedListBox chklist;
 
@@ -307,7 +321,6 @@
         private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.TextBox txtPrix;
-        private System.Windows.Forms.Button btnVoirMdp;
 
         private System.Windows.Forms.Label label_prix;
 

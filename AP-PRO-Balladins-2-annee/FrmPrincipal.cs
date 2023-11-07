@@ -23,10 +23,7 @@ namespace AP_PRO_Balladins_2_annee
         }
         private void OpenChildForm(Form childForm)
         {
-            if (_currentChildForm != null)
-            {
-                _currentChildForm.Close();
-            }
+            _currentChildForm?.Close();
             _currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -73,11 +70,9 @@ namespace AP_PRO_Balladins_2_annee
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WmNclbuttondown, HtCaption, 0);
-            }
+            if (e.Button != MouseButtons.Left) return;
+            ReleaseCapture();
+            SendMessage(Handle, WmNclbuttondown, HtCaption, 0);
         }
         
         private void button1_Click(object sender, EventArgs e)

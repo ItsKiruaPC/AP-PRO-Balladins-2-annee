@@ -40,7 +40,7 @@ namespace AP_PRO_Balladins_2_annee
             grd_view.Rows.Clear();
 
             var chambreNames = _chambreHelp.ChargerChambre();
-            var listChambre = _chambreHelp.ListChambre();
+            var listChambre = ChambreDao.ListChambre();
 
             cbo_chambre.DataSource = listChambre;
 
@@ -59,7 +59,7 @@ namespace AP_PRO_Balladins_2_annee
                     nohotel = Varglobale.Lehotel.nohotel,
                     nochambre = Convert.ToInt32(cbo_chambre.SelectedItem)
                 };
-                _chambreHelp.ListChambre();
+                ChambreDao.ListChambre();
                 var lol= new chambre();
                 foreach (var emp in _chambreHelp.ChargerChambre().Where(emp => emp.nochambre == unC.nochambre))
                 {
@@ -85,6 +85,7 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_Del_Click(object sender, EventArgs e)
         {
             var nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
+            //var test = Convert.ToInt32(grd_view.SelectedRows[0].Cells[0].Value);
             var chambreasupr = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre == nochambre);
             Varglobale.Lehotel.chambre.Remove(chambreasupr);
             Varglobale.ConnexionDb.SaveChanges();

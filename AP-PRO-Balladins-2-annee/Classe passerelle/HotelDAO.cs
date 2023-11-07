@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AP_PRO_Balladins_2_annee.Classe_passerelle
 {
-    public class HotelDao
+    public abstract class HotelDao
     {
         public List<hotel> ChargerHotel()
         {
@@ -18,7 +18,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
             catch (Exception ex)
             {
                 // Gérer les erreurs selon vos besoins
-                Console.WriteLine($"Erreur lors du chargement des noms d'hôtels : {ex.Message}");
+                Console.WriteLine($@"Erreur lors du chargement des noms d'hôtels : {ex.Message}");
                 return null;
             }
         }

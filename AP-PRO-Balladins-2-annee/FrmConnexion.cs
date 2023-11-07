@@ -16,7 +16,7 @@ namespace AP_PRO_Balladins_2_annee
         private void Form1_Load(object sender, EventArgs e)
         {
             txt_identifiant.Text = @"LYON - DARDILLY";
-            txt_password.Text = @"test";
+            txt_password.Text = @"testtest";
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,6 +69,14 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     MessageBox.Show(@"L'identifiant ou le mdp est faux");
                 }
+            }
+        }
+
+        private void FrmConnexion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                button1_Click(sender,e);
             }
         }
     }

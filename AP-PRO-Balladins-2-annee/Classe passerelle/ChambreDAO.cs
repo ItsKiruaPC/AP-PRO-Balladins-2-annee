@@ -20,7 +20,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
                 return null;
             }
         }
-        public List<int> ListChambre()
+        public static List<int> ListChambre()
         {
             var contexte = new ConnexionDb();
             try

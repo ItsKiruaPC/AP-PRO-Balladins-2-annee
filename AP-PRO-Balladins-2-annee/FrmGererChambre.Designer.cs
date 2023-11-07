@@ -114,8 +114,10 @@
             // 
             // cbo_chambre
             // 
+            this.cbo_chambre.DropDownHeight = 156;
             this.cbo_chambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_chambre.FormattingEnabled = true;
+            this.cbo_chambre.IntegralHeight = false;
             this.cbo_chambre.Location = new System.Drawing.Point(826, 353);
             this.cbo_chambre.Name = "cbo_chambre";
             this.cbo_chambre.Size = new System.Drawing.Size(117, 37);

@@ -1,7 +1,9 @@
 using System;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using AP_PRO_Balladins_2_annee.Classe_passerelle;
 
 namespace AP_PRO_Balladins_2_annee
@@ -32,9 +34,9 @@ namespace AP_PRO_Balladins_2_annee
             grd_liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             chk_chambre.Items.Clear();
             lbl_Hotel.Text = Varglobale.Lehotel.nom;
-            foreach (var emp in Varglobale.Lehotel.reservation )
+            foreach (var emp in Varglobale.Lehotel.reservation)
             {
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces,emp.chambre.Select(c=>c.nochambre.ToString()), emp.nores);
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces,Varglobale.ConnexionDb.chambre.Select(c=>c.nochambre).ToString(), emp.nores);
             }
             
             foreach (var emp in Varglobale.Lehotel.chambre)
@@ -46,9 +48,10 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_search_Click(object sender, EventArgs e)
         {
             grd_liste.Rows.Clear();
-            DateTime dateDebutRecherche = datePicker.Value.Date;
+            var dateDebutRecherche = datePicker.Value.Date;
             var test = Varglobale.ConnexionDb.reservation
-                .Where(h => h.datedeb == dateDebutRecherche && h.nohotel == Varglobale.Lehotel.nohotel).ToList();
+                .Where(h => h.datedeb == dateDebutRecherche && h.nohotel == Varglobale.Lehotel.nohotel)
+                .Include(reservation => reservation.chambre).ToList();
             foreach (var emp in test)
             {
                 grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, emp.chambre.Select(c => c.nochambre.ToString()), emp.nores);
@@ -58,32 +61,45 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_edit_Click(object sender, EventArgs e)
         {
             var hotel = Varglobale.Lehotel;
-            int test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[5].Value);
+            var test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[5].Value);
             var reserv = Varglobale.ConnexionDb.reservation.FirstOrDefault(h =>
                 h.nores == test );
-            if (reserv != null)
+            if (IsValidEmail(txt_mail_edit.Text))
             {
-                reserv.datedeb = date_debut_edit.Value;
-                reserv.datefin = date_fin_edit.Value;
-                reserv.nom = txt_nom_edit.Text;
-                reserv.email = txt_mail_edit.Text;
-                Varglobale.ConnexionDb.SaveChanges();
-                MessageBox.Show($@"Une réservation a été modifié à l'hôtel.");
-                FrmReservation_Load(sender,e);
+                if (reserv != null)
+                {
+                    reserv.datedeb = date_debut_edit.Value;
+                    reserv.datefin = date_fin_edit.Value;
+                    reserv.nom = txt_nom_edit.Text;
+                    reserv.email = txt_mail_edit.Text;
+                    Varglobale.ConnexionDb.SaveChanges();
+                    MessageBox.Show(@"Une réservation a été modifié à l'hôtel.");
+                    FrmReservation_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show(@"Cette réservation n'existe pas");
+                }
             }
             else
             {
-                MessageBox.Show(@"Cette réservation n'existe pas");
+                MessageBox.Show(@"L'email n'est pas valide");
             }
         }
         //Permet de génerer le code d'accées
-        private int generateurMdp()
+        private static int GenerateurMdp()
         {
             Random random = new Random();
             int min = (int)Math.Pow(10, 8 - 1);
             int max = (int)Math.Pow(10, 8) - 1;
 
             return random.Next(min, max + 1);
+        }
+        //Permet de verifier un email
+        static bool IsValidEmail(string email)
+        {
+            string pattern = @"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$";
+            return Regex.IsMatch(email, pattern);
         }
         //Permet d'ajouter une reservation
         private void btn_add_Click(object sender, EventArgs e)
@@ -96,32 +112,38 @@ namespace AP_PRO_Balladins_2_annee
                     h.nom == txt_nom.Text);
                 if (uneReserv != null)
                 {
-                    MessageBox.Show("Cette réservation existe déjà.");
+                    MessageBox.Show(@"Cette réservation existe déjà.");
                 }
                 else
                 {
-                    
-                    var nouvelleReserv = new reservation()
+                    if (IsValidEmail(txt_mail.Text))
                     {
-                        nores = Varglobale.Lehotel.reservation.Count > 0 ? Varglobale.Lehotel.reservation.Max(res => res.nores) + 1 : 1,
-                        datedeb = date_debut.Value,
-                        datefin = date_fin.Value,
-                        nom = txt_nom.Text,
-                        email = txt_mail.Text,
-                        codeacces = Convert.ToDouble(generateurMdp())
+                        var nouvelleReserv = new reservation()
+                        {
+                            nores = Varglobale.Lehotel.reservation.Count > 0 ? Varglobale.Lehotel.reservation.Max(res => res.nores) + 1 : 1,
+                            datedeb = date_debut.Value,
+                            datefin = date_fin.Value,
+                            nom = txt_nom.Text,
+                            email = txt_mail.Text,
+                            codeacces = Convert.ToDouble(GenerateurMdp())
                         
-                    };
-                    foreach (var unNoChambre in chk_chambre.CheckedItems)
-                    {
-                        chambre uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre.ToString() == unNoChambre.ToString());
-                        nouvelleReserv.chambre.Add(uneChambre);
+                        };
+                        grd_liste.Rows.Clear();
+                        foreach (var unNoChambre in chk_chambre.CheckedItems)
+                        {
+                            chambre uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre.ToString() == unNoChambre.ToString());
+                            nouvelleReserv.chambre.Add(uneChambre);
+                        }
+                    
+                        Varglobale.Lehotel.reservation.Add(nouvelleReserv);
+                        Varglobale.ConnexionDb.SaveChanges();
+                        MessageBox.Show(@"Ajouté");
+                        FrmReservation_Load(sender, e);
                     }
-                    
-                    Varglobale.Lehotel.reservation.Add(nouvelleReserv);
-                    Varglobale.ConnexionDb.SaveChanges();
-                    MessageBox.Show("Ajouté");
-                    FrmReservation_Load(sender, e);
-                    
+                    else
+                    {
+                        MessageBox.Show(@"L'email n'est pas valide");
+                    }
                 }
             }
         }
@@ -168,6 +190,66 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     MessageBox.Show(@"La date sélectionnée n'est pas valide.");
                 }
+            }
+        }
+
+        private void date_debut_Validating(object sender, CancelEventArgs e)
+        {
+            if (date_debut.Value > date_fin.Value)
+            {
+                e.Cancel = true;
+                date_debut.Focus();
+                errorProvider1.SetError(date_debut,"Veuillez ajouter une date plus petite que la date de fin");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(date_debut, null);
+            }
+        }
+
+        private void date_fin_Validating(object sender, CancelEventArgs e)
+        {
+            if (date_fin.Value < date_debut.Value)
+            {
+                e.Cancel = true;
+                date_fin.Focus();
+                errorProvider1.SetError(date_fin,"Veuillez ajouter une date plus grande que la date de debut");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(date_fin, null);
+            }
+        }
+
+        private void date_debut_edit_Validating(object sender, CancelEventArgs e)
+        {
+            if (date_debut_edit.Value >= date_fin_edit.Value)
+            {
+                e.Cancel = true;
+                date_debut_edit.Focus();
+                errorProvider1.SetError(date_debut_edit,"Veuillez ajouter une date plus petite que la date de fin");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(date_debut_edit, null);
+            }
+        }
+
+        private void date_fin_edit_Validating(object sender, CancelEventArgs e)
+        {
+            if (date_fin_edit.Value <= date_debut_edit.Value)
+            {
+                e.Cancel = true;
+                date_fin_edit.Focus();
+                errorProvider1.SetError(date_fin_edit,"Veuillez ajouter une date plus grande que la date de debut");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(date_fin_edit, null);
             }
         }
     }
