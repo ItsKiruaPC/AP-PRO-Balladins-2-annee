@@ -35,6 +35,10 @@ namespace AP_PRO_Balladins_2_annee
             chk_chambre.Items.Clear();
             lbl_Hotel.Text = Varglobale.Lehotel.nom;
             grd_liste.Rows.Clear();
+            //Permet de supprimer l'affichage de l'heure dans un DataGriedView -->
+            grd_liste.Columns[0].DefaultCellStyle.Format = "dd/MM/yyyy";
+            grd_liste.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+            //<-- 
             var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
             foreach (var emp in Varglobale.Lehotel.reservation)
             {
@@ -42,7 +46,7 @@ namespace AP_PRO_Balladins_2_annee
                 foreach (var uneChambre in emp.chambre) lesnoChambre += $"{uneChambre.nochambre}, ";
 
                 grd_liste.Rows.Add(emp.datedeb.Value.Date, emp.datefin.Value.Date, emp.nom, emp.email, emp.codeacces,
-                    lesnoChambre.Substring(0, lesnoChambre.Length - 2), emp.nores);
+                    lesnoChambre.Substring(0, lesnoChambre.Length - 0), emp.nores);
             }
 
             foreach (var emp in Varglobale.Lehotel.chambre) chk_chambre.Items.Add(emp.nochambre);
