@@ -338,7 +338,7 @@ namespace AP_PRO_Balladins_2_annee
             this.grd_liste.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_liste.Size = new System.Drawing.Size(691, 403);
             this.grd_liste.TabIndex = 1;
-            this.grd_liste.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_liste_CellClick);
+            this.grd_liste.SelectionChanged += new System.EventHandler(this.grd_liste_SelectionChanged);
             // 
             // tab_add
             // 

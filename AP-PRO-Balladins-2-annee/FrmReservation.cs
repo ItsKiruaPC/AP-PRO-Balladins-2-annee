@@ -311,9 +311,5 @@ namespace AP_PRO_Balladins_2_annee
         {
             for (var i = 0; i < chk_chambre.Items.Count; i++) chk_chambre.SetItemChecked(i, true);
         }
-
-        private void grd_liste_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
     }
 }
