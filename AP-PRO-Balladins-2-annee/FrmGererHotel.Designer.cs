@@ -72,6 +72,7 @@
             // 
             // txtMdp
             // 
+            this.txtMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMdp.Location = new System.Drawing.Point(197, 375);
             this.txtMdp.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtMdp.Name = "txtMdp";
@@ -82,11 +83,11 @@
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.BackColor = System.Drawing.Color.Transparent;
-            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNom.ForeColor = System.Drawing.Color.White;
             this.lblNom.Location = new System.Drawing.Point(15, 66);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(65, 29);
+            this.lblNom.Size = new System.Drawing.Size(59, 26);
             this.lblNom.TabIndex = 4;
             this.lblNom.Text = "Nom";
             // 
@@ -94,11 +95,11 @@
             // 
             this.lblAdresse1.AutoSize = true;
             this.lblAdresse1.BackColor = System.Drawing.Color.Transparent;
-            this.lblAdresse1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdresse1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdresse1.ForeColor = System.Drawing.Color.White;
-            this.lblAdresse1.Location = new System.Drawing.Point(21, 190);
+            this.lblAdresse1.Location = new System.Drawing.Point(15, 190);
             this.lblAdresse1.Name = "lblAdresse1";
-            this.lblAdresse1.Size = new System.Drawing.Size(127, 29);
+            this.lblAdresse1.Size = new System.Drawing.Size(116, 26);
             this.lblAdresse1.TabIndex = 5;
             this.lblAdresse1.Text = "Adresse 1:";
             // 
@@ -106,11 +107,11 @@
             // 
             this.lblTel.AutoSize = true;
             this.lblTel.BackColor = System.Drawing.Color.Transparent;
-            this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTel.ForeColor = System.Drawing.Color.White;
-            this.lblTel.Location = new System.Drawing.Point(21, 126);
+            this.lblTel.Location = new System.Drawing.Point(15, 125);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(61, 29);
+            this.lblTel.Size = new System.Drawing.Size(53, 26);
             this.lblTel.TabIndex = 6;
             this.lblTel.Text = "Tel :";
             // 
@@ -118,11 +119,11 @@
             // 
             this.lblmdp.AutoSize = true;
             this.lblmdp.BackColor = System.Drawing.Color.Transparent;
-            this.lblmdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmdp.ForeColor = System.Drawing.Color.White;
             this.lblmdp.Location = new System.Drawing.Point(15, 376);
             this.lblmdp.Name = "lblmdp";
-            this.lblmdp.Size = new System.Drawing.Size(170, 29);
+            this.lblmdp.Size = new System.Drawing.Size(154, 26);
             this.lblmdp.TabIndex = 7;
             this.lblmdp.Text = "Mot de passe :";
             // 
@@ -165,11 +166,11 @@
             // 
             this.label_prix.AutoSize = true;
             this.label_prix.BackColor = System.Drawing.Color.Transparent;
-            this.label_prix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_prix.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_prix.ForeColor = System.Drawing.Color.White;
-            this.label_prix.Location = new System.Drawing.Point(21, 309);
+            this.label_prix.Location = new System.Drawing.Point(15, 312);
             this.label_prix.Name = "label_prix";
-            this.label_prix.Size = new System.Drawing.Size(66, 29);
+            this.label_prix.Size = new System.Drawing.Size(62, 26);
             this.label_prix.TabIndex = 11;
             this.label_prix.Text = "Prix :";
             // 
@@ -187,11 +188,11 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(480, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 29);
+            this.label1.Size = new System.Drawing.Size(198, 26);
             this.label1.TabIndex = 14;
             this.label1.Text = "Description longue:";
             // 
@@ -200,11 +201,11 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(480, 265);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 29);
+            this.label2.Size = new System.Drawing.Size(193, 26);
             this.label2.TabIndex = 15;
             this.label2.Text = "Description courte:";
             // 
@@ -213,11 +214,11 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(770, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 29);
+            this.label3.Size = new System.Drawing.Size(146, 26);
             this.label3.TabIndex = 17;
             this.label3.Text = "Equipements:";
             // 
@@ -225,13 +226,13 @@
             // 
             this.lblAdresse2.AutoSize = true;
             this.lblAdresse2.BackColor = System.Drawing.Color.Transparent;
-            this.lblAdresse2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdresse2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdresse2.ForeColor = System.Drawing.Color.White;
             this.lblAdresse2.Location = new System.Drawing.Point(15, 249);
             this.lblAdresse2.Name = "lblAdresse2";
-            this.lblAdresse2.Size = new System.Drawing.Size(133, 29);
+            this.lblAdresse2.Size = new System.Drawing.Size(116, 26);
             this.lblAdresse2.TabIndex = 19;
-            this.lblAdresse2.Text = " Adresse 2:";
+            this.lblAdresse2.Text = "Adresse 2:";
             // 
             // txtAdr2
             // 
@@ -245,7 +246,7 @@
             // 
             this.chklist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chklist.CheckOnClick = true;
-            this.chklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chklist.FormattingEnabled = true;
             this.chklist.IntegralHeight = false;
             this.chklist.Location = new System.Drawing.Point(770, 69);
@@ -270,9 +271,10 @@
             // 
             this.chkBox1.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkBox1.AutoSize = true;
+            this.chkBox1.Image = global::AP_PRO_Balladins_2_annee.Properties.Resources.hide_regular_24;
             this.chkBox1.Location = new System.Drawing.Point(319, 367);
             this.chkBox1.Name = "chkBox1";
-            this.chkBox1.Size = new System.Drawing.Size(6, 6);
+            this.chkBox1.Size = new System.Drawing.Size(42, 42);
             this.chkBox1.TabIndex = 22;
             this.chkBox1.UseVisualStyleBackColor = true;
             this.chkBox1.CheckStateChanged += new System.EventHandler(this.chkBox1_CheckStateChanged);

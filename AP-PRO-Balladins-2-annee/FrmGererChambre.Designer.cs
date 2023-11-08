@@ -52,7 +52,7 @@
             this.grd_view.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -61,7 +61,7 @@
             this.grd_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -88,7 +88,7 @@
             // btn_Add
             // 
             this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.Location = new System.Drawing.Point(693, 452);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(137, 60);
@@ -100,7 +100,7 @@
             // btn_Del
             // 
             this.btn_Del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Del.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Del.Location = new System.Drawing.Point(905, 452);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(137, 60);
@@ -113,11 +113,11 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(772, 141);
+            this.label2.Location = new System.Drawing.Point(786, 143);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 29);
+            this.label2.Size = new System.Drawing.Size(163, 26);
             this.label2.TabIndex = 8;
             this.label2.Text = "Nom de l\'hotel :";
             // 
@@ -130,7 +130,7 @@
             this.cbo_chambre.IntegralHeight = false;
             this.cbo_chambre.Location = new System.Drawing.Point(806, 353);
             this.cbo_chambre.Name = "cbo_chambre";
-            this.cbo_chambre.Size = new System.Drawing.Size(117, 37);
+            this.cbo_chambre.Size = new System.Drawing.Size(117, 28);
             this.cbo_chambre.TabIndex = 9;
             this.cbo_chambre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbo_chambre_KeyPress);
             // 
@@ -138,11 +138,11 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(753, 310);
+            this.label3.Location = new System.Drawing.Point(763, 308);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(234, 29);
+            this.label3.Size = new System.Drawing.Size(211, 26);
             this.label3.TabIndex = 10;
             this.label3.Text = "Numéro de chambre";
             // 
@@ -153,7 +153,7 @@
             this.txt_Nom.Location = new System.Drawing.Point(750, 183);
             this.txt_Nom.Name = "txt_Nom";
             this.txt_Nom.ReadOnly = true;
-            this.txt_Nom.Size = new System.Drawing.Size(224, 35);
+            this.txt_Nom.Size = new System.Drawing.Size(224, 26);
             this.txt_Nom.TabIndex = 11;
             // 
             // label1
@@ -164,7 +164,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(379, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 55);
+            this.label1.Size = new System.Drawing.Size(153, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Chambres";
             // 

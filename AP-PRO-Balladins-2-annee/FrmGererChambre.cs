@@ -27,6 +27,7 @@ namespace AP_PRO_Balladins_2_annee
             grd_view.AllowUserToAddRows = false;
             grd_view.AllowUserToResizeRows = false;
             grd_view.AllowUserToResizeColumns = false;
+            
             //configure un DataGridView pour l'édition programmée, la sélection de lignes complètes, l'ajustement automatique des colonnes, et l'alignement du contenu au centre pour les lignes et les en-têtes de colonnes.
             grd_view.EditMode = DataGridViewEditMode.EditProgrammatically;
             grd_view.BackgroundColor = SystemColors.Control;

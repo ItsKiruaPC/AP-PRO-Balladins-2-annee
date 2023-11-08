@@ -32,6 +32,9 @@ namespace AP_PRO_Balladins_2_annee
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -88,12 +91,12 @@ namespace AP_PRO_Balladins_2_annee
             // datePicker
             // 
             this.datePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.datePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePicker.Location = new System.Drawing.Point(98, 28);
             this.datePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datePicker.MinDate = new System.DateTime(2023, 11, 5, 0, 0, 0, 0);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(380, 35);
+            this.datePicker.Size = new System.Drawing.Size(380, 32);
             this.datePicker.TabIndex = 0;
             // 
             // tab_control
@@ -101,7 +104,7 @@ namespace AP_PRO_Balladins_2_annee
             this.tab_control.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_control.Controls.Add(this.tab_reserv);
             this.tab_control.Controls.Add(this.tab_add);
-            this.tab_control.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab_control.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tab_control.Location = new System.Drawing.Point(0, 51);
             this.tab_control.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_control.Name = "tab_control";
@@ -125,11 +128,11 @@ namespace AP_PRO_Balladins_2_annee
             this.tab_reserv.Controls.Add(this.grd_liste);
             this.tab_reserv.Controls.Add(this.datePicker);
             this.tab_reserv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab_reserv.Location = new System.Drawing.Point(4, 38);
+            this.tab_reserv.Location = new System.Drawing.Point(4, 34);
             this.tab_reserv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_reserv.Name = "tab_reserv";
             this.tab_reserv.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_reserv.Size = new System.Drawing.Size(1057, 492);
+            this.tab_reserv.Size = new System.Drawing.Size(1057, 496);
             this.tab_reserv.TabIndex = 0;
             this.tab_reserv.Text = "Réservations";
             this.tab_reserv.UseVisualStyleBackColor = true;
@@ -166,10 +169,10 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(842, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 29);
+            this.label5.Size = new System.Drawing.Size(56, 26);
             this.label5.TabIndex = 13;
             this.label5.Text = "Mail";
             // 
@@ -177,10 +180,10 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(842, 206);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 29);
+            this.label4.Size = new System.Drawing.Size(62, 26);
             this.label4.TabIndex = 12;
             this.label4.Text = "Nom";
             // 
@@ -188,22 +191,22 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(824, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 29);
+            this.label3.Size = new System.Drawing.Size(95, 26);
             this.label3.TabIndex = 11;
             this.label3.Text = "Date fin";
             // 
             // date_fin_edit
             // 
             this.date_fin_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
-            this.date_fin_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_fin_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_fin_edit.Location = new System.Drawing.Point(756, 168);
             this.date_fin_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date_fin_edit.MinDate = new System.DateTime(2023, 11, 5, 0, 0, 0, 0);
             this.date_fin_edit.Name = "date_fin_edit";
-            this.date_fin_edit.Size = new System.Drawing.Size(245, 26);
+            this.date_fin_edit.Size = new System.Drawing.Size(245, 27);
             this.date_fin_edit.TabIndex = 10;
             this.date_fin_edit.Validating += new System.ComponentModel.CancelEventHandler(this.date_fin_edit_Validating);
             // 
@@ -211,22 +214,22 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(806, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 29);
+            this.label2.Size = new System.Drawing.Size(128, 26);
             this.label2.TabIndex = 9;
             this.label2.Text = "Date début";
             // 
             // date_debut_edit
             // 
             this.date_debut_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
-            this.date_debut_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_debut_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_debut_edit.Location = new System.Drawing.Point(756, 82);
             this.date_debut_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date_debut_edit.MinDate = new System.DateTime(2023, 11, 5, 0, 0, 0, 0);
             this.date_debut_edit.Name = "date_debut_edit";
-            this.date_debut_edit.Size = new System.Drawing.Size(245, 26);
+            this.date_debut_edit.Size = new System.Drawing.Size(245, 27);
             this.date_debut_edit.TabIndex = 8;
             this.date_debut_edit.Validating += new System.ComponentModel.CancelEventHandler(this.date_debut_edit_Validating);
             // 
@@ -237,7 +240,7 @@ namespace AP_PRO_Balladins_2_annee
             this.txt_mail_edit.Location = new System.Drawing.Point(756, 316);
             this.txt_mail_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_mail_edit.Name = "txt_mail_edit";
-            this.txt_mail_edit.Size = new System.Drawing.Size(245, 35);
+            this.txt_mail_edit.Size = new System.Drawing.Size(245, 26);
             this.txt_mail_edit.TabIndex = 6;
             // 
             // txt_nom_edit
@@ -247,7 +250,7 @@ namespace AP_PRO_Balladins_2_annee
             this.txt_nom_edit.Location = new System.Drawing.Point(756, 238);
             this.txt_nom_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_nom_edit.Name = "txt_nom_edit";
-            this.txt_nom_edit.Size = new System.Drawing.Size(245, 35);
+            this.txt_nom_edit.Size = new System.Drawing.Size(245, 26);
             this.txt_nom_edit.TabIndex = 5;
             // 
             // btn_edit
@@ -270,15 +273,39 @@ namespace AP_PRO_Balladins_2_annee
             this.grd_liste.AllowUserToDeleteRows = false;
             this.grd_liste.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.grd_liste.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_liste.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grd_liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_liste.DefaultCellStyle = dataGridViewCellStyle2;
             this.grd_liste.Location = new System.Drawing.Point(8, 69);
             this.grd_liste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grd_liste.Name = "grd_liste";
             this.grd_liste.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_liste.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grd_liste.RowHeadersWidth = 51;
             this.grd_liste.RowTemplate.Height = 28;
             this.grd_liste.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grd_liste.Size = new System.Drawing.Size(691, 399);
+            this.grd_liste.Size = new System.Drawing.Size(691, 403);
             this.grd_liste.TabIndex = 1;
             this.grd_liste.SelectionChanged += new System.EventHandler(this.grd_liste_SelectionChanged);
             // 
@@ -296,11 +323,11 @@ namespace AP_PRO_Balladins_2_annee
             this.tab_add.Controls.Add(this.date_debut);
             this.tab_add.Controls.Add(this.txt_mail);
             this.tab_add.Controls.Add(this.txt_nom);
-            this.tab_add.Location = new System.Drawing.Point(4, 38);
+            this.tab_add.Location = new System.Drawing.Point(4, 29);
             this.tab_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_add.Name = "tab_add";
             this.tab_add.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_add.Size = new System.Drawing.Size(1057, 492);
+            this.tab_add.Size = new System.Drawing.Size(1057, 501);
             this.tab_add.TabIndex = 1;
             this.tab_add.Text = "Ajouter";
             this.tab_add.UseVisualStyleBackColor = true;
@@ -311,17 +338,17 @@ namespace AP_PRO_Balladins_2_annee
             this.lbl_Hotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Hotel.Location = new System.Drawing.Point(389, 25);
             this.lbl_Hotel.Name = "lbl_Hotel";
-            this.lbl_Hotel.Size = new System.Drawing.Size(0, 46);
+            this.lbl_Hotel.Size = new System.Drawing.Size(0, 31);
             this.lbl_Hotel.TabIndex = 15;
             // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(808, 213);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 29);
+            this.label10.Size = new System.Drawing.Size(121, 26);
             this.label10.TabIndex = 14;
             this.label10.Text = "Chambres";
             // 
@@ -329,21 +356,22 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.chk_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chk_chambre.CheckOnClick = true;
+            this.chk_chambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_chambre.FormattingEnabled = true;
             this.chk_chambre.Location = new System.Drawing.Point(755, 253);
             this.chk_chambre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chk_chambre.Name = "chk_chambre";
-            this.chk_chambre.Size = new System.Drawing.Size(235, 184);
+            this.chk_chambre.Size = new System.Drawing.Size(235, 166);
             this.chk_chambre.TabIndex = 13;
             // 
             // label9
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(498, 255);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(507, 253);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 29);
+            this.label9.Size = new System.Drawing.Size(56, 26);
             this.label9.TabIndex = 12;
             this.label9.Text = "Mail";
             // 
@@ -351,10 +379,10 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(498, 155);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(507, 155);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 29);
+            this.label8.Size = new System.Drawing.Size(62, 26);
             this.label8.TabIndex = 11;
             this.label8.Text = "Nom";
             // 
@@ -362,20 +390,20 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(799, 89);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 29);
+            this.label7.Size = new System.Drawing.Size(128, 26);
             this.label7.TabIndex = 10;
             this.label7.Text = "Date de fin";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(102, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(177, 29);
+            this.label6.Size = new System.Drawing.Size(161, 26);
             this.label6.TabIndex = 9;
             this.label6.Text = "Date de début";
             // 
@@ -397,20 +425,22 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.date_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.date_fin.CustomFormat = "dd/MM/yyyy";
+            this.date_fin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_fin.Location = new System.Drawing.Point(662, 138);
             this.date_fin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date_fin.Name = "date_fin";
-            this.date_fin.Size = new System.Drawing.Size(389, 35);
+            this.date_fin.Size = new System.Drawing.Size(389, 32);
             this.date_fin.TabIndex = 7;
             this.date_fin.Validating += new System.ComponentModel.CancelEventHandler(this.date_fin_Validating);
             // 
             // date_debut
             // 
             this.date_debut.CustomFormat = "dd/MM/yyyy";
+            this.date_debut.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_debut.Location = new System.Drawing.Point(8, 138);
             this.date_debut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date_debut.Name = "date_debut";
-            this.date_debut.Size = new System.Drawing.Size(389, 35);
+            this.date_debut.Size = new System.Drawing.Size(389, 32);
             this.date_debut.TabIndex = 6;
             this.date_debut.Validating += new System.ComponentModel.CancelEventHandler(this.date_debut_Validating);
             // 
@@ -420,7 +450,7 @@ namespace AP_PRO_Balladins_2_annee
             this.txt_mail.Location = new System.Drawing.Point(452, 288);
             this.txt_mail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_mail.Name = "txt_mail";
-            this.txt_mail.Size = new System.Drawing.Size(165, 35);
+            this.txt_mail.Size = new System.Drawing.Size(165, 32);
             this.txt_mail.TabIndex = 3;
             // 
             // txt_nom
@@ -429,18 +459,18 @@ namespace AP_PRO_Balladins_2_annee
             this.txt_nom.Location = new System.Drawing.Point(452, 198);
             this.txt_nom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_nom.Name = "txt_nom";
-            this.txt_nom.Size = new System.Drawing.Size(165, 35);
+            this.txt_nom.Size = new System.Drawing.Size(165, 32);
             this.txt_nom.TabIndex = 2;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(402, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(292, 55);
+            this.label1.Size = new System.Drawing.Size(196, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "Réservation";
             // 

@@ -46,7 +46,8 @@ namespace AP_PRO_Balladins_2_annee
             this.btn_Minimize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel_Form = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -119,9 +120,9 @@ namespace AP_PRO_Balladins_2_annee
             this.lbl_Nom.AutoSize = true;
             this.lbl_Nom.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
             this.lbl_Nom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(67)))));
-            this.lbl_Nom.Location = new System.Drawing.Point(103, 56);
+            this.lbl_Nom.Location = new System.Drawing.Point(311, 63);
             this.lbl_Nom.Name = "lbl_Nom";
-            this.lbl_Nom.Size = new System.Drawing.Size(0, 93);
+            this.lbl_Nom.Size = new System.Drawing.Size(0, 62);
             this.lbl_Nom.TabIndex = 1;
             this.lbl_Nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -185,24 +186,37 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // panel_Form
             // 
-            this.panel_Form.Controls.Add(this.label1);
+            this.panel_Form.Controls.Add(this.label3);
+            this.panel_Form.Controls.Add(this.label2);
             this.panel_Form.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Form.Location = new System.Drawing.Point(304, 149);
             this.panel_Form.Name = "panel_Form";
             this.panel_Form.Size = new System.Drawing.Size(1107, 635);
             this.panel_Form.TabIndex = 2;
             // 
-            // label1
+            // label3
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(35, 259);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1038, 93);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bienvenus chez Balladins\r\n";
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(215, 259);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(701, 62);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Bienvenus chez Balladins\r\n";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(229, 259);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(701, 62);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Bienvenus chez Balladins\r\n";
             // 
             // FrmPrincipal
             // 
@@ -228,7 +242,8 @@ namespace AP_PRO_Balladins_2_annee
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
 
         private System.Windows.Forms.Panel panel3;
 
