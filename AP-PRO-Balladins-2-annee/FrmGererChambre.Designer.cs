@@ -45,7 +45,11 @@
             // 
             // grd_view
             // 
-            this.grd_view.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(22)))), ((int)(((byte)(41)))));
+            this.grd_view.AllowUserToAddRows = false;
+            this.grd_view.AllowUserToDeleteRows = false;
+            this.grd_view.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.grd_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grd_view.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -63,8 +67,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grd_view.DefaultCellStyle = dataGridViewCellStyle2;
+            this.grd_view.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(22)))), ((int)(((byte)(41)))));
             this.grd_view.Location = new System.Drawing.Point(12, 122);
             this.grd_view.Name = "grd_view";
+            this.grd_view.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -81,8 +87,9 @@
             // 
             // btn_Add
             // 
+            this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(708, 452);
+            this.btn_Add.Location = new System.Drawing.Point(693, 452);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(137, 60);
             this.btn_Add.TabIndex = 4;
@@ -92,8 +99,9 @@
             // 
             // btn_Del
             // 
+            this.btn_Del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Del.Location = new System.Drawing.Point(927, 452);
+            this.btn_Del.Location = new System.Drawing.Point(905, 452);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(137, 60);
             this.btn_Del.TabIndex = 6;
@@ -103,10 +111,11 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(792, 141);
+            this.label2.Location = new System.Drawing.Point(772, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 29);
             this.label2.TabIndex = 8;
@@ -114,11 +123,12 @@
             // 
             // cbo_chambre
             // 
+            this.cbo_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbo_chambre.DropDownHeight = 156;
             this.cbo_chambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_chambre.FormattingEnabled = true;
             this.cbo_chambre.IntegralHeight = false;
-            this.cbo_chambre.Location = new System.Drawing.Point(826, 353);
+            this.cbo_chambre.Location = new System.Drawing.Point(806, 353);
             this.cbo_chambre.Name = "cbo_chambre";
             this.cbo_chambre.Size = new System.Drawing.Size(117, 37);
             this.cbo_chambre.TabIndex = 9;
@@ -126,10 +136,11 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(773, 310);
+            this.label3.Location = new System.Drawing.Point(753, 310);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(234, 29);
             this.label3.TabIndex = 10;
@@ -137,8 +148,9 @@
             // 
             // txt_Nom
             // 
+            this.txt_Nom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Nom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Nom.Location = new System.Drawing.Point(770, 183);
+            this.txt_Nom.Location = new System.Drawing.Point(750, 183);
             this.txt_Nom.Name = "txt_Nom";
             this.txt_Nom.ReadOnly = true;
             this.txt_Nom.Size = new System.Drawing.Size(224, 35);
@@ -146,6 +158,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Noto Sans", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
