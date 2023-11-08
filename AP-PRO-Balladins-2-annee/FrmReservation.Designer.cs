@@ -222,11 +222,11 @@ namespace AP_PRO_Balladins_2_annee
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(832, 176);
+            this.label3.Location = new System.Drawing.Point(814, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 26);
+            this.label3.Size = new System.Drawing.Size(161, 26);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Date fin";
+            this.label3.Text = "Date de sortie";
             // 
             // date_fin_edit
             // 
@@ -247,9 +247,9 @@ namespace AP_PRO_Balladins_2_annee
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(814, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 26);
+            this.label2.Size = new System.Drawing.Size(131, 26);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Date début";
+            this.label2.Text = "Date rentré";
             // 
             // date_debut_edit
             // 
@@ -427,11 +427,11 @@ namespace AP_PRO_Balladins_2_annee
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(799, 89);
+            this.label7.Location = new System.Drawing.Point(780, 89);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 26);
+            this.label7.Size = new System.Drawing.Size(161, 26);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Date de fin";
+            this.label7.Text = "Date de sortie";
             // 
             // label6
             // 
@@ -439,9 +439,9 @@ namespace AP_PRO_Balladins_2_annee
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(102, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 26);
+            this.label6.Size = new System.Drawing.Size(164, 26);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Date de début";
+            this.label6.Text = "Date de rentré";
             // 
             // btn_add
             // 

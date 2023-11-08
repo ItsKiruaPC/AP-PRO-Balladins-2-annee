@@ -16,14 +16,13 @@ namespace AP_PRO_Balladins_2_annee
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_identifiant.Text) || string.IsNullOrEmpty(txt_password.Text))
             {
-               MessageBox.Show(@"Veuillez saisir votre mot de passe et votre utilisateur");
+                MessageBox.Show(@"Veuillez saisir votre mot de passe et votre utilisateur");
             }
             else
             {
@@ -63,7 +62,7 @@ namespace AP_PRO_Balladins_2_annee
                         {
                             result.password = txt_password.Text;
                             db.SaveChanges();
-                            button1_Click(sender,e);
+                            button1_Click(sender, e);
                         }
                         else
                         {

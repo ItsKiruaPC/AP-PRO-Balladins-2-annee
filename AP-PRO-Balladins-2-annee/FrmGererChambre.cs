@@ -8,12 +8,12 @@ namespace AP_PRO_Balladins_2_annee
 {
     public partial class FrmGererChambre : Form
     {
+        private readonly ChambreDao _chambreHelp = new ChambreDao();
+
         public FrmGererChambre()
         {
             InitializeComponent();
         }
-
-        private readonly ChambreDao _chambreHelp = new ChambreDao();
 
         //Affiche toute les informations des chambres au démarrage de l'appli
         private void FrmGererChambre_Load(object sender, EventArgs e)

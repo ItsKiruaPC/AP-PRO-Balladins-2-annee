@@ -10,6 +10,15 @@ namespace AP_PRO_Balladins_2_annee
         //parametre pour déplacer la fenetre -->
         public const int WmNclbuttondown = 0xA1;
         public const int HtCaption = 0x2;
+        private Form _currentChildForm;
+
+        //<--jusqu'içi
+        public string nom_header;
+
+        public FrmPrincipal()
+        {
+            InitializeComponent();
+        }
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
@@ -17,15 +26,6 @@ namespace AP_PRO_Balladins_2_annee
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        //<--jusqu'içi
-        public string nom_header;
-        private Form _currentChildForm;
-
-        public FrmPrincipal()
-        {
-            InitializeComponent();
-        }
-        
         private void OpenChildForm(Form childForm)
         {
             _currentChildForm?.Close();
@@ -38,6 +38,7 @@ namespace AP_PRO_Balladins_2_annee
             childForm.BringToFront();
             childForm.Show();
         }
+
         //Cache au démarrage les boutons d'accées au formulaire sur le coté tant que l'utilisateur n'est pas connecté
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -74,11 +75,13 @@ namespace AP_PRO_Balladins_2_annee
         {
             OpenChildForm(new FrmGererChambre());
         }
+
         //Ouvre le formulaire des reservations
         private void btn_Reserv_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FrmReservation());
         }
+
         //Ferme l'application lorsque l'utilisateur clique à l'exterieur de l'appli
         private void panel3_MouseDown(object sender, MouseEventArgs e)
         {
@@ -86,6 +89,7 @@ namespace AP_PRO_Balladins_2_annee
             ReleaseCapture();
             SendMessage(Handle, WmNclbuttondown, HtCaption, 0);
         }
+
         //Bouton qui permet de fermer l'application 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -97,15 +101,21 @@ namespace AP_PRO_Balladins_2_annee
         private void btn_Maximize_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
+            {
                 WindowState = FormWindowState.Maximized;
+            }
             else
+            {
                 WindowState = FormWindowState.Normal;
+            }
         }
+
         //Bouton qui permet de minimisé l'application dans la barre Windows
         private void btn_Minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
+
         //Boutton qui permet de déconnecter l'utilisateur de l'application
         private void btn_deconnect_Click(object sender, EventArgs e)
         {

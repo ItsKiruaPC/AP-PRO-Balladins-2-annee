@@ -6,7 +6,7 @@ namespace AP_PRO_Balladins_2_annee
     internal static class Program
     {
         /// <summary>
-        /// Point d'entrée principal de l'application.
+        ///     Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
         private static void Main()

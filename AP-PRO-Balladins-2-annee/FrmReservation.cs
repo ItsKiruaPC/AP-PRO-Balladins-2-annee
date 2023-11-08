@@ -32,34 +32,41 @@ namespace AP_PRO_Balladins_2_annee
             grd_liste.AllowUserToResizeRows = false;
             grd_liste.AllowUserToResizeColumns = false;
             grd_liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            //Permet de tout nettoyer dans le grd et listcheckbox
             chk_chambre.Items.Clear();
             grd_liste.Rows.Clear();
+
             //Permet de supprimer l'affichage de l'heure dans un DataGriedView -->
             grd_liste.Columns[0].DefaultCellStyle.Format = "dd/MM/yyyy";
             grd_liste.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
             //<-- 
+            //Permet d'afficher les données dans le grd et dans la listcheckbox
             var numeroChambre = Varglobale.Lehotel.chambre.Select(c => c.nochambre).FirstOrDefault();
             foreach (var emp in Varglobale.Lehotel.reservation)
-            {
                 try
                 {
                     var lesnoChambre =
                         emp.chambre.Aggregate("", (current, uneChambre) => current + $"{uneChambre.nochambre}, ");
-                    grd_liste.Rows.Add(emp.datedeb.Value.Date, emp.datefin.Value.Date, emp.nom, emp.email, emp.codeacces,
-                        lesnoChambre.Substring(0, lesnoChambre.Length -2), emp.nores);
+                    grd_liste.Rows.Add(emp.datedeb.Value.Date, emp.datefin.Value.Date, emp.nom, emp.email,
+                        emp.codeacces,
+                        lesnoChambre.Substring(0, lesnoChambre.Length - 2), emp.nores);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(
-                        "Ceci apporte un bug car vous avez supprimer des chambres alors qu'il existe des réservations\n"+"Veuillez contacter un administrateur ou alors veuillez rajouter les chambres");
+                        "Ceci apporte un bug car vous avez supprimer des chambres alors qu'il existe des réservations\n" +
+                        "Veuillez contacter un administrateur ou alors veuillez rajouter les chambres");
                     MessageBox.Show(ex.Message);
                     throw;
                 }
-                
-            }
-            foreach (var emp in Varglobale.Lehotel.chambre.OrderBy(h=>h.nochambre)) chk_chambre.Items.Add(emp.nochambre);
+
+            foreach (var emp in Varglobale.Lehotel.chambre.OrderBy(h => h.nochambre))
+                chk_chambre.Items.Add(emp.nochambre);
+            //Permet que le jour de sortie soit 1 jour après
             date_fin_edit.Value = DateTime.Today.AddDays(1);
             date_fin.Value = DateTime.Today.AddDays(1);
+            //Appel de la methode pour selectionner les lignes du tableau
             grd_liste_SelectionChanged(sender, e);
         }
 
@@ -141,43 +148,43 @@ namespace AP_PRO_Balladins_2_annee
             else
             {
                 var fact = chk_chambre.CheckedIndices.Cast<object>().Any();
-
+                //Suite de sécurité
                 if (!string.IsNullOrEmpty(txt_nom.Text))
                 {
                     if (IsValidEmail(txt_mail.Text))
                     {
-                        if (date_debut.Value < date_fin.Value || date_fin.Value > date_debut.Value)
+                        if (date_debut.Value > date_fin.Value && date_fin.Value < date_debut.Value) return;
+                        //Création de la réservation
+                        if (fact)
                         {
-                            if (fact)
+                            var nouvelleReserv = new reservation
                             {
-                                var nouvelleReserv = new reservation
-                                {
-                                    nores = Varglobale.ConnexionDb.reservation.Any()
-                                        ? Varglobale.ConnexionDb.reservation.Max(res => res.nores) + 1
-                                        : 1,
-                                    datedeb = date_debut.Value,
-                                    datefin = date_fin.Value,
-                                    nom = txt_nom.Text,
-                                    email = txt_mail.Text,
-                                    codeacces = Convert.ToDouble(GenerateurMdp())
-                                };
-                                grd_liste.Rows.Clear();
-                                foreach (var unNoChambre in chk_chambre.CheckedItems)
-                                {
-                                    var uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre =>
-                                        chambre.nochambre.ToString() == unNoChambre.ToString());
-                                    nouvelleReserv.chambre.Add(uneChambre);
-                                }
+                                nores = Varglobale.ConnexionDb.reservation.Any()
+                                    ? Varglobale.ConnexionDb.reservation.Max(res => res.nores) + 1
+                                    : 1,
+                                datedeb = date_debut.Value,
+                                datefin = date_fin.Value,
+                                nom = txt_nom.Text,
+                                email = txt_mail.Text,
+                                codeacces = Convert.ToDouble(GenerateurMdp())
+                            };
+                            grd_liste.Rows.Clear();
+                            //Ajout de la chambre relier à la réservation
+                            foreach (var unNoChambre in chk_chambre.CheckedItems)
+                            {
+                                var uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre =>
+                                    chambre.nochambre.ToString() == unNoChambre.ToString());
+                                nouvelleReserv.chambre.Add(uneChambre);
+                            }
 
-                                Varglobale.Lehotel.reservation.Add(nouvelleReserv);
-                                Varglobale.ConnexionDb.SaveChanges();
-                                MessageBox.Show(@"Ajouté");
-                                FrmReservation_Load(sender, e);
-                            }
-                            else
-                            {
-                                MessageBox.Show(@"Il n'y a pas de chambre séléctionner");
-                            }
+                            Varglobale.Lehotel.reservation.Add(nouvelleReserv);
+                            Varglobale.ConnexionDb.SaveChanges();
+                            MessageBox.Show(@"Ajouté");
+                            FrmReservation_Load(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show(@"Il n'y a pas de chambre séléctionner");
                         }
                     }
                     else
@@ -234,7 +241,6 @@ namespace AP_PRO_Balladins_2_annee
                     MessageBox.Show(@"La date sélectionnée n'est pas valide.");
                 }
             }
-            
         }
 
         //Permet d'instancer la date de début de la reservation
@@ -307,6 +313,7 @@ namespace AP_PRO_Balladins_2_annee
             FrmReservation_Load(sender, e);
         }
 
+        //Permet de selectionner toutes les chambres
         private void btn_tout_Click(object sender, EventArgs e)
         {
             for (var i = 0; i < chk_chambre.Items.Count; i++) chk_chambre.SetItemChecked(i, true);

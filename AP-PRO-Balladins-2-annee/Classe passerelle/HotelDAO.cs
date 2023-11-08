@@ -8,8 +8,7 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
     {
         public List<hotel> ChargerHotel()
         {
-
-           var context = new ConnexionDb();
+            var context = new ConnexionDb();
             try
             {
                 // Remplacez "Hotels" par le nom de votre entité représentant les hôtels
@@ -25,7 +24,8 @@ namespace AP_PRO_Balladins_2_annee.Classe_passerelle
 
         public static void DeconnexionHotel()
         {
-            Varglobale.Lehotel = Varglobale.ConnexionDb.hotel.FirstOrDefault(hotel => hotel.nom == "" && hotel.password == "");
+            Varglobale.Lehotel =
+                Varglobale.ConnexionDb.hotel.FirstOrDefault(hotel => hotel.nom == "" && hotel.password == "");
         }
     }
 }
