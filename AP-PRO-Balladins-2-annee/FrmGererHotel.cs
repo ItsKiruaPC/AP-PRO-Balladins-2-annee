@@ -121,7 +121,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true;
         }
-
+        //Permet de modifier l'image du bouton "Voir MDP" en fonction de l'etat de ce dernier
         private void chkBox1_CheckStateChanged(object sender, EventArgs e)
         {
             if (chkBox1.Checked)

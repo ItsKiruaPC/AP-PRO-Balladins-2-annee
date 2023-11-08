@@ -43,7 +43,7 @@ namespace AP_PRO_Balladins_2_annee
             var listChambre = ChambreDao.ListChambre();
 
             cbo_chambre.DataSource = listChambre;
-
+            //Verifie que les chambres afficher dans le GRD correspondent à l'hotel 
             if (Varglobale.Lehotel.nom == null) return;
             foreach (var emp in chambreNames)
                 grd_view.Rows.Add(emp.nochambre, emp.hotel.nom);
@@ -79,7 +79,7 @@ namespace AP_PRO_Balladins_2_annee
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //Permet de supprimer une chambre dans la base de donnée
         private void btn_Del_Click(object sender, EventArgs e)
         {
             var nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
@@ -90,7 +90,7 @@ namespace AP_PRO_Balladins_2_annee
 
             FrmGererChambre_Load(sender, e);
         }
-
+        //Permet d'éviter la saisie de caractére different de AlphaNumérique dans le ComboBox
         private void cbo_chambre_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

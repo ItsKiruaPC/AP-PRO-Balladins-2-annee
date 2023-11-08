@@ -208,7 +208,7 @@ namespace AP_PRO_Balladins_2_annee
                 MessageBox.Show(@"La date sélectionnée n'est pas valide.");
             }
         }
-
+        //Permet d'instancer la date de début de la reservation
         private void date_debut_Validating(object sender, CancelEventArgs e)
         {
             if (date_debut.Value > date_fin.Value)
@@ -223,7 +223,7 @@ namespace AP_PRO_Balladins_2_annee
                 errorProvider1.SetError(date_debut, null);
             }
         }
-
+        //Permet d'instancer la date de fin de la reservation
         private void date_fin_Validating(object sender, CancelEventArgs e)
         {
             if (date_fin.Value < date_debut.Value)
@@ -238,7 +238,7 @@ namespace AP_PRO_Balladins_2_annee
                 errorProvider1.SetError(date_fin, null);
             }
         }
-
+        //Verifie que la date de début est inferieur à la date de fin
         private void date_debut_edit_Validating(object sender, CancelEventArgs e)
         {
             if (date_debut_edit.Value >= date_fin_edit.Value)
@@ -253,7 +253,7 @@ namespace AP_PRO_Balladins_2_annee
                 errorProvider1.SetError(date_debut_edit, null);
             }
         }
-
+        //Vérifie que la date de fin soit supérieur à la date de début
         private void date_fin_edit_Validating(object sender, CancelEventArgs e)
         {
             if (date_fin_edit.Value <= date_debut_edit.Value)
