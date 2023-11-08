@@ -2,8 +2,8 @@ using System;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using AP_PRO_Balladins_2_annee.Classe_passerelle;
 
 namespace AP_PRO_Balladins_2_annee
@@ -14,6 +14,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             InitializeComponent();
         }
+
         //Permet de générer les données tel que le datagridview, la liste des chambres
         private void FrmReservation_Load(object sender, EventArgs e)
         {
@@ -38,19 +39,15 @@ namespace AP_PRO_Balladins_2_annee
             foreach (var emp in Varglobale.Lehotel.reservation)
             {
                 var lesnoChambre = "";
-                foreach (var uneChambre in emp.chambre)
-                {
-                    lesnoChambre += $"{uneChambre.nochambre}, ";
-                }
-                
-                grd_liste.Rows.Add(emp.datedeb.Value.Date, emp.datefin.Value.Date, emp.nom, emp.email, emp.codeacces, lesnoChambre.Substring(0, lesnoChambre.Length-2), emp.nores);
+                foreach (var uneChambre in emp.chambre) lesnoChambre += $"{uneChambre.nochambre}, ";
+
+                grd_liste.Rows.Add(emp.datedeb.Value.Date, emp.datefin.Value.Date, emp.nom, emp.email, emp.codeacces,
+                    lesnoChambre.Substring(0, lesnoChambre.Length - 2), emp.nores);
             }
-            
-            foreach (var emp in Varglobale.Lehotel.chambre)
-            {
-                chk_chambre.Items.Add(emp.nochambre);
-            }
+
+            foreach (var emp in Varglobale.Lehotel.chambre) chk_chambre.Items.Add(emp.nochambre);
         }
+
         //Permet de rechercher une réservation grace a sa date de début
         private void btn_search_Click(object sender, EventArgs e)
         {
@@ -62,20 +59,19 @@ namespace AP_PRO_Balladins_2_annee
             foreach (var emp in test)
             {
                 var lesnoChambre = "";
-                foreach (var uneChambre in emp.chambre)
-                {
-                    lesnoChambre += $"{uneChambre.nochambre}, ";
-                }
-                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, lesnoChambre, emp.nores);
+                foreach (var uneChambre in emp.chambre) lesnoChambre += $"{uneChambre.nochambre}, ";
+                grd_liste.Rows.Add(emp.datedeb, emp.datefin, emp.nom, emp.email, emp.codeacces, lesnoChambre,
+                    emp.nores);
             }
         }
+
         //Permet de modifier la réservation en fonction de la ligne sélectionné puis on change les données
         private void btn_edit_Click(object sender, EventArgs e)
         {
             var hotel = Varglobale.Lehotel;
             var test = Convert.ToInt32(grd_liste.SelectedRows[0].Cells[6].Value);
             var reserv = Varglobale.ConnexionDb.reservation.FirstOrDefault(h =>
-                h.nores == test );
+                h.nores == test);
             if (IsValidEmail(txt_mail_edit.Text))
             {
                 if (reserv != null)
@@ -98,21 +94,24 @@ namespace AP_PRO_Balladins_2_annee
                 MessageBox.Show(@"L'email n'est pas valide");
             }
         }
+
         //Permet de génerer le code d'accées
         private static int GenerateurMdp()
         {
-            Random random = new Random();
-            int min = (int)Math.Pow(10, 8 - 1);
-            int max = (int)Math.Pow(10, 8) - 1;
+            var random = new Random();
+            var min = (int)Math.Pow(10, 8 - 1);
+            var max = (int)Math.Pow(10, 8) - 1;
 
             return random.Next(min, max + 1);
         }
+
         //Permet de verifier un email
-        static bool IsValidEmail(string email)
+        private static bool IsValidEmail(string email)
         {
-            string pattern = @"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$";
+            var pattern = @"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$";
             return Regex.IsMatch(email, pattern);
         }
+
         //Permet d'ajouter une reservation
         private void btn_add_Click(object sender, EventArgs e)
         {
@@ -130,23 +129,25 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     if (IsValidEmail(txt_mail.Text))
                     {
-                        var nouvelleReserv = new reservation()
+                        var nouvelleReserv = new reservation
                         {
-                            nores = Varglobale.Lehotel.reservation.Count > 0 ? Varglobale.Lehotel.reservation.Max(res => res.nores) + 1 : 1,
+                            nores = Varglobale.Lehotel.reservation.Count > 0
+                                ? Varglobale.Lehotel.reservation.Max(res => res.nores) + 1
+                                : 1,
                             datedeb = date_debut.Value,
                             datefin = date_fin.Value,
                             nom = txt_nom.Text,
                             email = txt_mail.Text,
                             codeacces = Convert.ToDouble(GenerateurMdp())
-                        
                         };
                         grd_liste.Rows.Clear();
                         foreach (var unNoChambre in chk_chambre.CheckedItems)
                         {
-                            chambre uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre.ToString() == unNoChambre.ToString());
+                            var uneChambre = Varglobale.Lehotel.chambre.FirstOrDefault(chambre =>
+                                chambre.nochambre.ToString() == unNoChambre.ToString());
                             nouvelleReserv.chambre.Add(uneChambre);
                         }
-                    
+
                         Varglobale.Lehotel.reservation.Add(nouvelleReserv);
                         Varglobale.ConnexionDb.SaveChanges();
                         MessageBox.Show(@"Ajouté");
@@ -159,6 +160,7 @@ namespace AP_PRO_Balladins_2_annee
                 }
             }
         }
+
         //Permet de supprimer les réservations
         private void btn_delete_Click(object sender, EventArgs e)
         {
@@ -166,17 +168,14 @@ namespace AP_PRO_Balladins_2_annee
             var hotel = Varglobale.Lehotel;
             if (hotel != null)
             {
-                DateTime dateDebut = date_debut_edit.Value;
-                DateTime dateFin = date_fin_edit.Value;
-                
+                var dateDebut = date_debut_edit.Value;
+                var dateFin = date_fin_edit.Value;
+
                 var uneReserv = Varglobale.ConnexionDb.reservation.FirstOrDefault(h =>
                     h.datedeb == dateDebut && h.datefin == dateFin &&
                     h.nom == txt_nom_edit.Text && h.email == txt_mail_edit.Text && h.nores == test);
-                foreach (var uneChambre in Varglobale.Lehotel.chambre)
-                {
-                    uneChambre.reservation.Remove(uneReserv);
-                }
-                
+                foreach (var uneChambre in Varglobale.Lehotel.chambre) uneChambre.reservation.Remove(uneReserv);
+
                 if (uneReserv != null)
                 {
                     Varglobale.ConnexionDb.reservation.Remove(uneReserv);
@@ -185,29 +184,28 @@ namespace AP_PRO_Balladins_2_annee
                 }
             }
         }
+
         //Permet de séléctionner la ligne et de convertir les données dans les textbox et date
         private void grd_liste_SelectionChanged(object sender, EventArgs e)
         {
-            if (grd_liste.SelectedRows.Count>0)
-            {
-                DataGridViewRow selectedRow = grd_liste.SelectedRows[0];
-                
-                string dateString1 = selectedRow.Cells[0].Value.ToString();
-                string dateString2 = selectedRow.Cells[1].Value.ToString();
-                txt_nom_edit.Text = selectedRow.Cells[2].Value.ToString();
-                txt_mail_edit.Text = selectedRow.Cells[3].Value.ToString();
+            if (grd_liste.SelectedRows.Count <= 0) return;
+            var selectedRow = grd_liste.SelectedRows[0];
 
-                DateTime dateValue1;
-                DateTime dateValue2;
-                if (DateTime.TryParse(dateString1, out dateValue1) && DateTime.TryParse(dateString2, out dateValue2))
-                {
-                    date_debut_edit.Value = dateValue1;
-                    date_fin_edit.Value = dateValue2;
-                }
-                else
-                {
-                    MessageBox.Show(@"La date sélectionnée n'est pas valide.");
-                }
+            var dateString1 = selectedRow.Cells[0].Value.ToString();
+            var dateString2 = selectedRow.Cells[1].Value.ToString();
+            txt_nom_edit.Text = selectedRow.Cells[2].Value.ToString();
+            txt_mail_edit.Text = selectedRow.Cells[3].Value.ToString();
+
+            DateTime dateValue1;
+            DateTime dateValue2;
+            if (DateTime.TryParse(dateString1, out dateValue1) && DateTime.TryParse(dateString2, out dateValue2))
+            {
+                date_debut_edit.Value = dateValue1;
+                date_fin_edit.Value = dateValue2;
+            }
+            else
+            {
+                MessageBox.Show(@"La date sélectionnée n'est pas valide.");
             }
         }
 
@@ -217,7 +215,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 e.Cancel = true;
                 date_debut.Focus();
-                errorProvider1.SetError(date_debut,"Veuillez ajouter une date plus petite que la date de fin");
+                errorProvider1.SetError(date_debut, "Veuillez ajouter une date plus petite que la date de fin");
             }
             else
             {
@@ -232,7 +230,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 e.Cancel = true;
                 date_fin.Focus();
-                errorProvider1.SetError(date_fin,"Veuillez ajouter une date plus grande que la date de debut");
+                errorProvider1.SetError(date_fin, "Veuillez ajouter une date plus grande que la date de debut");
             }
             else
             {
@@ -247,7 +245,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 e.Cancel = true;
                 date_debut_edit.Focus();
-                errorProvider1.SetError(date_debut_edit,"Veuillez ajouter une date plus petite que la date de fin");
+                errorProvider1.SetError(date_debut_edit, "Veuillez ajouter une date plus petite que la date de fin");
             }
             else
             {
@@ -262,7 +260,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 e.Cancel = true;
                 date_fin_edit.Focus();
-                errorProvider1.SetError(date_fin_edit,"Veuillez ajouter une date plus grande que la date de debut");
+                errorProvider1.SetError(date_fin_edit, "Veuillez ajouter une date plus grande que la date de debut");
             }
             else
             {

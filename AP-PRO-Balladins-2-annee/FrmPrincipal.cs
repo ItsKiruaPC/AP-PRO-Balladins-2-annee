@@ -1,6 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Drawing;
 using AP_PRO_Balladins_2_annee.Classe_passerelle;
 
 namespace AP_PRO_Balladins_2_annee
@@ -11,17 +11,21 @@ namespace AP_PRO_Balladins_2_annee
         public const int WmNclbuttondown = 0xA1;
         public const int HtCaption = 0x2;
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
+
         //<--jusqu'içi
         public string nom_header;
         private Form _currentChildForm;
+
         public FrmPrincipal()
         {
             InitializeComponent();
         }
+
         private void OpenChildForm(Form childForm)
         {
             _currentChildForm?.Close();
@@ -34,6 +38,7 @@ namespace AP_PRO_Balladins_2_annee
             childForm.BringToFront();
             childForm.Show();
         }
+
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             btn_Chambre.Enabled = false;
@@ -56,6 +61,7 @@ namespace AP_PRO_Balladins_2_annee
             notifyIcon1.BalloonTipTitle = @"Balladin";
             notifyIcon1.ShowBalloonTip(100);
         }
+
         private void btn_Hotel_Click(object sender, EventArgs e)
         {
             OpenChildForm(new TogleButton());
@@ -65,6 +71,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             OpenChildForm(new FrmGererChambre());
         }
+
         private void btn_Reserv_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FrmReservation());
@@ -76,34 +83,30 @@ namespace AP_PRO_Balladins_2_annee
             ReleaseCapture();
             SendMessage(Handle, WmNclbuttondown, HtCaption, 0);
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             Varglobale.Frm2.ShowDialog();
         }
 
         private void btn_Maximize_Click(object sender, EventArgs e)
         {
-
             if (WindowState == FormWindowState.Normal)
-            {
                 WindowState = FormWindowState.Maximized;
-            }
             else
                 WindowState = FormWindowState.Normal;
         }
 
         private void btn_Minimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void btn_deconnect_Click(object sender, EventArgs e)
         {
             HotelDao.DeconnexionHotel();
-            FrmPrincipal_Load(sender,e);
+            FrmPrincipal_Load(sender, e);
         }
-        
     }
 }

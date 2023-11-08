@@ -4,10 +4,10 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Windows.Forms;
 using AP_PRO_Balladins_2_annee.Classe_passerelle;
+using AP_PRO_Balladins_2_annee.Properties;
 
 namespace AP_PRO_Balladins_2_annee
 {
-
     public partial class TogleButton : Form
     {
         public TogleButton()
@@ -23,7 +23,7 @@ namespace AP_PRO_Balladins_2_annee
         //Rafraichit les informations de l'hotel lors des modifications de celui-ci
         private void RefreshHotel()
         {
-            chkBox1.Image = Properties.Resources.hide_regular_24;
+            chkBox1.Image = Resources.hide_regular_24;
             txtMdp.PasswordChar = '*';
             txtNom.Text = Varglobale.Lehotel.nom;
             txtAdr1.Text = Varglobale.Lehotel.adr1;
@@ -75,23 +75,15 @@ namespace AP_PRO_Balladins_2_annee
             {
                 //Fonctions de débogage pour parcourir les erreurs
                 foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        MessageBox.Show($@"Erreur de validation : {validationError.ErrorMessage}");
-                    }
-                }
+                foreach (var validationError in validationErrors.ValidationErrors)
+                    MessageBox.Show($@"Erreur de validation : {validationError.ErrorMessage}");
             }
             catch (DbUpdateException ex)
             {
-
                 if (ex.InnerException != null)
                 {
                     var innerException = ex.InnerException;
-                    while (innerException.InnerException != null)
-                    {
-                        innerException = innerException.InnerException;
-                    }
+                    while (innerException.InnerException != null) innerException = innerException.InnerException;
 
                     MessageBox.Show(
                         $@"Erreur lors de la mise à jour de la base de données : {innerException.Message}");
@@ -107,19 +99,15 @@ namespace AP_PRO_Balladins_2_annee
         private void btnEditer_Click(object sender, EventArgs e)
         {
             //Demande à l'utilisateur la confirmation de la modification
-            DialogResult result = MessageBox.Show(@"Êtes vous sur de vouloir modifier l'hotel ?", @"Confirmation",
+            var result = MessageBox.Show(@"Êtes vous sur de vouloir modifier l'hotel ?", @"Confirmation",
                 MessageBoxButtons.OKCancel);
 
             if (result == DialogResult.OK)
-            {
                 //Appelle la méthode AjoutElement si la modification est voulu
                 AjoutElements();
-            }
             else
-            {
                 //Appelle la méthode RefreshHotel en cas d'erreur de l'utilisateur lors de la modificatiion
                 RefreshHotel();
-            }
         }
 
         //Affiche ou cache le mot de passe de l'hotel (element de sécurité)
@@ -131,25 +119,21 @@ namespace AP_PRO_Balladins_2_annee
         //Interdit la saisie de caractére différent d'un chiffre ou d'un numéro
         private void txtPrix_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true;
         }
 
         private void chkBox1_CheckStateChanged(object sender, EventArgs e)
         {
             if (chkBox1.Checked)
             {
-                chkBox1.Image = Properties.Resources.show_regular_24;
-                btnVoirMdp_Click(sender,e);
+                chkBox1.Image = Resources.show_regular_24;
+                btnVoirMdp_Click(sender, e);
             }
             else
             {
-                chkBox1.Image = Properties.Resources.hide_regular_24;
-                btnVoirMdp_Click(sender,e);
+                chkBox1.Image = Resources.hide_regular_24;
+                btnVoirMdp_Click(sender, e);
             }
-            
         }
     }
 }
