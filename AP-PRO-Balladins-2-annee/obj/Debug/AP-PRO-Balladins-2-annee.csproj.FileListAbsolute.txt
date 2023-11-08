@@ -112,3 +112,5 @@ C:\Users\eliot\Source\Repos\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\bi
 C:\Users\eliot\Source\Repos\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP_PRO_Balladins_2_annee.FrmReservation.resources
 C:\Users\eliot\Source\Repos\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CoreCompileInputs.cache
 C:\Users\eliot\Source\Repos\AP-PRO-Balladins-2-annee\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.csproj.CopyComplete
+C:\Users\eliot\source\repos\AP-PRO-Balladins-2-anneeLast\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.exe
+C:\Users\eliot\source\repos\AP-PRO-Balladins-2-anneeLast\AP-PRO-Balladins-2-annee\obj\Debug\AP-PRO-Balladins-2-annee.pdb

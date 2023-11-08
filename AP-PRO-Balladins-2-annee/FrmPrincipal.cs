@@ -25,7 +25,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             InitializeComponent();
         }
-
+        
         private void OpenChildForm(Form childForm)
         {
             _currentChildForm?.Close();
@@ -38,7 +38,7 @@ namespace AP_PRO_Balladins_2_annee
             childForm.BringToFront();
             childForm.Show();
         }
-
+        //Cache au démarrage les boutons d'accées au formulaire sur le coté tant que l'utilisateur n'est pas connecté
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             btn_Chambre.Enabled = false;
@@ -48,6 +48,7 @@ namespace AP_PRO_Balladins_2_annee
             OpenChildForm(new FrmConnexion());
         }
 
+        //Affiche les informations de l'application (Boutton de navigation, titre de l'application) lorsque l'utilisateur est connecté
         public void Switch_Visibility(bool isVisible)
         {
             lbl_Nom.Text = nom_header;
@@ -62,34 +63,37 @@ namespace AP_PRO_Balladins_2_annee
             notifyIcon1.ShowBalloonTip(100);
         }
 
+        //Ouvre le formulaire de gestion des hotels
         private void btn_Hotel_Click(object sender, EventArgs e)
         {
             OpenChildForm(new TogleButton());
         }
 
+        //Ouvre le formulaire de gestion des chambres de l'hotel
         private void btn_Chambre_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FrmGererChambre());
         }
-
+        //Ouvre le formulaire des reservations
         private void btn_Reserv_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FrmReservation());
         }
-
+        //Ferme l'application lorsque l'utilisateur clique à l'exterieur de l'appli
         private void panel3_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left) return;
             ReleaseCapture();
             SendMessage(Handle, WmNclbuttondown, HtCaption, 0);
         }
-
+        //Bouton qui permet de fermer l'application 
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
             Varglobale.Frm2.ShowDialog();
         }
 
+        //Permet de mettre l'application en pleine écran
         private void btn_Maximize_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
@@ -97,12 +101,12 @@ namespace AP_PRO_Balladins_2_annee
             else
                 WindowState = FormWindowState.Normal;
         }
-
+        //Bouton qui permet de minimisé l'application dans la barre Windows
         private void btn_Minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        //Boutton qui permet de déconnecter l'utilisateur de l'application
         private void btn_deconnect_Click(object sender, EventArgs e)
         {
             HotelDao.DeconnexionHotel();
