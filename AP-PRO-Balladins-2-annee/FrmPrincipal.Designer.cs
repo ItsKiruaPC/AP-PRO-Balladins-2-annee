@@ -47,7 +47,6 @@ namespace AP_PRO_Balladins_2_annee
             this.button1 = new System.Windows.Forms.Button();
             this.panel_Form = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,6 +74,7 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // btn_deconnect
             // 
+            this.btn_deconnect.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_deconnect.Location = new System.Drawing.Point(28, 721);
             this.btn_deconnect.Name = "btn_deconnect";
             this.btn_deconnect.Size = new System.Drawing.Size(253, 51);
@@ -90,7 +90,7 @@ namespace AP_PRO_Balladins_2_annee
             this.btn_Hotel.Name = "btn_Hotel";
             this.btn_Hotel.Size = new System.Drawing.Size(253, 51);
             this.btn_Hotel.TabIndex = 5;
-            this.btn_Hotel.Text = "Modification";
+            this.btn_Hotel.Text = "Modification de l\'hotel";
             this.btn_Hotel.UseVisualStyleBackColor = true;
             this.btn_Hotel.Click += new System.EventHandler(this.btn_Hotel_Click);
             // 
@@ -116,11 +116,11 @@ namespace AP_PRO_Balladins_2_annee
             // 
             // lbl_Nom
             // 
-            this.lbl_Nom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_Nom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Nom.AutoSize = true;
             this.lbl_Nom.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
             this.lbl_Nom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(67)))));
-            this.lbl_Nom.Location = new System.Drawing.Point(311, 63);
+            this.lbl_Nom.Location = new System.Drawing.Point(51, 67);
             this.lbl_Nom.Name = "lbl_Nom";
             this.lbl_Nom.Size = new System.Drawing.Size(0, 62);
             this.lbl_Nom.TabIndex = 1;
@@ -187,7 +187,6 @@ namespace AP_PRO_Balladins_2_annee
             // panel_Form
             // 
             this.panel_Form.Controls.Add(this.label3);
-            this.panel_Form.Controls.Add(this.label2);
             this.panel_Form.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Form.Location = new System.Drawing.Point(304, 149);
             this.panel_Form.Name = "panel_Form";
@@ -198,25 +197,13 @@ namespace AP_PRO_Balladins_2_annee
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 45F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(215, 259);
+            this.label3.Location = new System.Drawing.Point(148, 275);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(701, 62);
+            this.label3.Size = new System.Drawing.Size(870, 78);
             this.label3.TabIndex = 2;
             this.label3.Text = "Bienvenus chez Balladins\r\n";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(229, 259);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(701, 62);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Bienvenus chez Balladins\r\n";
             // 
             // FrmPrincipal
             // 
@@ -242,7 +229,6 @@ namespace AP_PRO_Balladins_2_annee
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
 
         private System.Windows.Forms.Panel panel3;

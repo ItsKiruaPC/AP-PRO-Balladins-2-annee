@@ -104,16 +104,22 @@ namespace AP_PRO_Balladins_2_annee
 
             if (result == DialogResult.OK)
                 //Appelle la méthode AjoutElement si la modification est voulu
+            {
                 AjoutElements();
+            }
             else
                 //Appelle la méthode RefreshHotel en cas d'erreur de l'utilisateur lors de la modificatiion
+            {
                 RefreshHotel();
+            }
         }
 
         //Affiche ou cache le mot de passe de l'hotel (element de sécurité)
         private void btnVoirMdp_Click(object sender, EventArgs e)
         {
-            txtMdp.PasswordChar = txtMdp.PasswordChar == '*' ? '\0' : '*';
+            txtMdp.PasswordChar = txtMdp.PasswordChar == '*'
+                ? '\0'
+                : '*';
         }
 
         //Interdit la saisie de caractére différent d'un chiffre ou d'un numéro
@@ -121,6 +127,7 @@ namespace AP_PRO_Balladins_2_annee
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true;
         }
+
         //Permet de modifier l'image du bouton "Voir MDP" en fonction de l'etat de ce dernier
         private void chkBox1_CheckStateChanged(object sender, EventArgs e)
         {

@@ -158,7 +158,7 @@
             this.btnEditer.Name = "btnEditer";
             this.btnEditer.Size = new System.Drawing.Size(165, 43);
             this.btnEditer.TabIndex = 10;
-            this.btnEditer.Text = "Edition";
+            this.btnEditer.Text = "Sauvegarder";
             this.btnEditer.UseVisualStyleBackColor = true;
             this.btnEditer.Click += new System.EventHandler(this.btnEditer_Click);
             // 
@@ -246,7 +246,7 @@
             // 
             this.chklist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chklist.CheckOnClick = true;
-            this.chklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chklist.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chklist.FormattingEnabled = true;
             this.chklist.IntegralHeight = false;
             this.chklist.Location = new System.Drawing.Point(770, 69);

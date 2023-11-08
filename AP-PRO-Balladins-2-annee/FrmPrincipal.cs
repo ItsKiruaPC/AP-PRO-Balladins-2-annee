@@ -41,9 +41,9 @@ namespace AP_PRO_Balladins_2_annee
         //Cache au démarrage les boutons d'accées au formulaire sur le coté tant que l'utilisateur n'est pas connecté
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            btn_Chambre.Enabled = false;
-            btn_Hotel.Enabled = false;
-            btn_Reserv.Enabled = false;
+            btn_Chambre.Visible = false;
+            btn_Hotel.Visible = false;
+            btn_Reserv.Visible = false;
             btn_deconnect.Visible = false;
             OpenChildForm(new FrmConnexion());
         }
@@ -52,9 +52,9 @@ namespace AP_PRO_Balladins_2_annee
         public void Switch_Visibility(bool isVisible)
         {
             lbl_Nom.Text = nom_header;
-            btn_Chambre.Enabled = isVisible;
-            btn_Hotel.Enabled = isVisible;
-            btn_Reserv.Enabled = isVisible;
+            btn_Chambre.Visible = isVisible;
+            btn_Hotel.Visible = isVisible;
+            btn_Reserv.Visible = isVisible;
             btn_deconnect.Visible = isVisible;
             notifyIcon1.Visible = true;
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;

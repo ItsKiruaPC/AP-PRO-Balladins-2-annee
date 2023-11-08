@@ -16,15 +16,17 @@ namespace AP_PRO_Balladins_2_annee
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txt_identifiant.Text = @"LYON - DARDILLY";
-            txt_password.Text = @"testtest";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_identifiant.Text) || string.IsNullOrEmpty(txt_password.Text))
-                lblinfos.Text = @"Veuillez saisir votre mot de passe et votre utilisateur";
+            {
+               MessageBox.Show(@"Veuillez saisir votre mot de passe et votre utilisateur");
+            }
             else
+            {
                 try
                 {
                     if (Varglobale.ConnexionDb.hotel.Any(hotel =>
@@ -45,6 +47,7 @@ namespace AP_PRO_Balladins_2_annee
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
         }
 
         private void btn_create_Click(object sender, EventArgs e)
@@ -52,6 +55,7 @@ namespace AP_PRO_Balladins_2_annee
             {
                 if (Varglobale.ConnexionDb.hotel.Any(hotel =>
                         hotel.nom == txt_identifiant.Text && hotel.password == null))
+                {
                     using (var db = new ConnexionDb())
                     {
                         var result = db.hotel.SingleOrDefault(hotel => hotel.nom == txt_identifiant.Text);
@@ -59,14 +63,18 @@ namespace AP_PRO_Balladins_2_annee
                         {
                             result.password = txt_password.Text;
                             db.SaveChanges();
+                            button1_Click(sender,e);
                         }
                         else
                         {
-                            lblinfos.Text = @"Veuillez ecrire le bon mot de passe";
+                            MessageBox.Show(@"Veuillez ecrire un mot de passe avec minimum 8 caractères");
                         }
                     }
+                }
                 else
+                {
                     MessageBox.Show(@"L'identifiant ou le mdp est faux");
+                }
             }
         }
 

@@ -27,7 +27,7 @@ namespace AP_PRO_Balladins_2_annee
             grd_view.AllowUserToAddRows = false;
             grd_view.AllowUserToResizeRows = false;
             grd_view.AllowUserToResizeColumns = false;
-            
+
             //configure un DataGridView pour l'édition programmée, la sélection de lignes complètes, l'ajustement automatique des colonnes, et l'alignement du contenu au centre pour les lignes et les en-têtes de colonnes.
             grd_view.EditMode = DataGridViewEditMode.EditProgrammatically;
             grd_view.BackgroundColor = SystemColors.Control;
@@ -61,10 +61,10 @@ namespace AP_PRO_Balladins_2_annee
                     nochambre = Convert.ToInt32(cbo_chambre.SelectedItem)
                 };
                 ChambreDao.ListChambre();
-                var lol = new chambre();
+                var uneCExiste = new chambre();
                 foreach (var emp in _chambreHelp.ChargerChambre().Where(emp => emp.nochambre == unC.nochambre))
-                    lol = emp;
-                if (unC.nochambre != lol.nochambre || lol.nochambre == 0)
+                    uneCExiste = emp;
+                if (unC.nochambre != uneCExiste.nochambre || uneCExiste.nochambre == 0)
                 {
                     Varglobale.Lehotel.chambre.Add(unC);
                     Varglobale.ConnexionDb.SaveChanges();
@@ -80,17 +80,19 @@ namespace AP_PRO_Balladins_2_annee
                 MessageBox.Show(ex.Message);
             }
         }
+
         //Permet de supprimer une chambre dans la base de donnée
         private void btn_Del_Click(object sender, EventArgs e)
         {
+            cbo_chambre.Text = grd_view.SelectedRows[0].Cells[0].Value.ToString();
             var nochambre = Convert.ToInt32(cbo_chambre.SelectedItem);
-            //var test = Convert.ToInt32(grd_view.SelectedRows[0].Cells[0].Value);
             var chambreasupr = Varglobale.Lehotel.chambre.FirstOrDefault(chambre => chambre.nochambre == nochambre);
             Varglobale.Lehotel.chambre.Remove(chambreasupr);
             Varglobale.ConnexionDb.SaveChanges();
 
             FrmGererChambre_Load(sender, e);
         }
+
         //Permet d'éviter la saisie de caractére different de AlphaNumérique dans le ComboBox
         private void cbo_chambre_KeyPress(object sender, KeyPressEventArgs e)
         {
