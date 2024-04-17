@@ -1,7 +1,12 @@
-# Application en C#, SQLServer sur Balladins (Chaine d'hôtellerie)
+# Application en C# et SQLServer sur Balladins (Chaine d'hôtellerie)
+
 ## Projet réalisé en 2ème année de BTS SIO
->[!IMPORTANT]
+>[!NOTE]
 > Fait par Adrien et Elyothe
+
+>[!IMPORTANT]
+> ## Complexité ajoutée
+> Utilisation d'EntityFramework
 
 ## Nous avions 4 fonctionnalités à faire et intégrer dans l'application
 ## **<ins>Fonctionnalité 1**</ins>
